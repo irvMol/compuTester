@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Chromebook Tester</title>
+  <!-- external CSS link-->
+<link rel="stylesheet" href="assets/css/style.css">
+  <!-- external JS link-->
+  <script src="assets/js/main.js">
+</script>  
+</head>
+
+<body>
+  <div class="flexy">
+    <div><!-- START: Page Title -->
+      <h1>Laptop Tester</h1>
+      
+    </div>
+
+    <hr style="visibility: hidden;" >
+
+    <div id="system-info"><!-- START: System Information -->
+      <h2>System Info:</h2>
+
+      <p id="sysInfo"></p>
+      <script>
+        document.getElementById("sysInfo").innerHTML = platform.description;
+      </script>
+    </div><!-- END: System Information -->
+  </div>
+
+  <hr />
+
+<div class="flexy">
+    <button class="btn" onclick="getPermission()" tabindex="1 ">Browser permissions</button>
+    <hr />
+    <button class="btn" onclick="allTests()" tabindex="2">All Tests</button>
+  </div>
+
+  <div class="break"></div>
+  <hr />
+
+  <div class="flexy">
+<div id="mic-test"><!-- START: Mic Test -->
+<h2 id="mic-status">Microphone Test</h2>
+<button class="btn" onclick="startMic()" tabindex="2">Start Microphone</button>
+<br />
+<label for="recordLength">Recording Length &#40;in seconds&#41;:</label>
+<input id="recordLength" type="text" value="5" min="3" max="300" tabindex="3" size="1">
+
+<br />
+<br />
+<div id="visualizer-container"><!-- START: Visualizer Container -->
+<span id="visualizer-height"></span>
+</div><!-- END: Visualizer Container -->
+</div><!-- END: Mic Test -->
+
+<hr />
+
+<div id="webcam-test"><!-- START: Webcam Test -->
+    <h2 id="webcam-status">Webcam Test</h2>
+    <button class="btn" onclick="startWebcam()" tabindex="2">Run webcam</button>
+<br />
+<br />
+<div id="webcamWrapper"><!-- START: Webcam Wrapper -->
+<video id="videoPlayer" autoplay></video>
+</div><!-- END: Webcam Wrapper -->
+ </div><!-- END: Webcam Test -->
+  </div>
+
+  <div class="break"></div>
+  <hr />
+
+  <div id="audio-tests" class="flexy"><!-- START: Audio Tests -->
+<div>
+<h3>Left Channel</h3>
+<audio preload="auto" id="leftChannel">
+<source src="https://cdn.jsdelivr.net/gh/lunu-bounir/audio-equalizer/test/left.ogg" type="audio/ogg">
+Your browser does not support the<code>audio</code> element.
+</audio>
+<button class="btn" onclick="document.getElementById('leftChannel').play()" tabindex="4">Play</button>
+</div>
+
+    <hr />
+
+<div>
+<h3>Right Channel</h3>
+<audio preload="auto" id="rightChannel">
+<source src="https://cdn.jsdelivr.net/gh/lunu-bounir/audio-equalizer/test/right.ogg" type="audio/ogg">
+Your browser does not support the<code>audio</code> element.
+</audio>
+<button class="btn" onclick="document.getElementById('rightChannel').play()" tabindex="5">Play</button>
+</div>
+</div><!-- END: Audio Tests -->
+
+  <hr />
+
+  <div>
+<div id="keyboard-tests"><!-- START: Keyboard Test -->
+<h2>Keyboard Test</h2>
+<div id="keyboard"><!-- START: Keyboard -->
+<div class="keyboard-main-area"><!-- START: Keyboard Main Area -->
+<div class="keyboard-row"><!-- START: First Row -->
+<span class="key" id="Escape">Esc</span> &nbsp; Don't forget to check your other top row keys and the headphone jack.
+<!-- <span class="key key-empty"></span>
+<span class="key" id="F1">F1</span>
+<span class="key" id="F2">F2</span>
+<span class="key" id="F3">F3</span>
+<span class="key" id="F4">F4</span>
+<span class="key" id="F5">F5</span>
+<span class="key" id="F6">F6</span>
+<span class="key" id="F7">F7</span>
+<span class="key" id="F8">F8</span>
+<span class="key" id="F9">F9</span>
+<span class="key" id="F10">F10</span>
+<span class="key" id="F11">F11</span>
+<span class="key" id="F12">F12</span> -->
+</div><!-- END: First Row -->
+
+<div class="keyboard-row"><!-- START: Second Row -->
+<span class="key" id="Backquote">`</span>
+<span class="key" id="Digit1">1</span>
+<span class="key" id="Digit2">2</span>
+<span class="key" id="Digit3">3</span>
+<span class="key" id="Digit4">4</span>
+<span class="key" id="Digit5">5</span>
+<span class="key" id="Digit6">6</span>
+<span class="key" id="Digit7">7</span>
+<span class="key" id="Digit8">8</span>
+<span class="key" id="Digit9">9</span>
+<span class="key" id="Digit0">0</span>
+<span class="key" id="Minus">-</span>
+<span class="key" id="Equal">=</span>
+<span class="key" id="Backspace">Backspace</span>
+</div><!-- END: Second Row -->
+
+<div class="keyboard-row"><!-- START: Third Row -->
+<span class="key" id="Tab">Tab</span>
+<span class="key" id="KeyQ">Q</span>
+<span class="key" id="KeyW">W</span>
+<span class="key" id="KeyE">E</span>
+<span class="key" id="KeyR">R</span>
+<span class="key" id="KeyT">T</span>
+<span class="key" id="KeyY">Y</span>
+<span class="key" id="KeyU">U</span>
+<span class="key" id="KeyI">I</span>
+<span class="key" id="KeyO">O</span>
+<span class="key" id="KeyP">P</span>
+<span class="key" id="BracketLeft">[</span>
+<span class="key" id="BracketRight">]</span>
+<span class="key" id="Backslash">\</span>
+</div><!-- END: Third Row -->
+
+<div class="keyboard-row"><!-- START: Fourth Row -->
+<!-- <span class="key" id="CapsLock"></span> -->
+<span class="key" id="MetaLeft">&#128269;</span>
+<span class="key" id="KeyA">A</span>
+<span class="key" id="KeyS">S</span>
+<span class="key" id="KeyD">D</span>
+<span class="key" id="KeyF">F</span>
+<span class="key" id="KeyG">G</span>
+<span class="key" id="KeyH">H</span>
+<span class="key" id="KeyJ">J</span>
+<span class="key" id="KeyK">K</span>
+<span class="key" id="KeyL">L</span>
+<span class="key" id="Semicolon">;</span>
+<span class="key" id="Quote">'</span>
+<span class="key" id="Enter">Enter</span>
+</div><!-- END: Fourth Row -->
+
+
+<div class="keyboard-row"><!-- START: Fifth Row -->
+<span class="key" id="ShiftLeft">Shift</span>
+<span class="key" id="KeyZ">Z</span>
+<span class="key" id="KeyX">X</span>
+<span class="key" id="KeyC">C</span>
+<span class="key" id="KeyV">V</span>
+<span class="key" id="KeyB">B</span>
+<span class="key" id="KeyN">N</span>
+<span class="key" id="KeyM">M</span>
+<span class="key" id="Comma">,</span>
+<span class="key" id="Period">.</span>
+<span class="key" id="Slash">/</span>
+<span class="key" id="ShiftRight">Shift</span>
+<span class="key" id="ArrowUp">&#8593</span> <!-- Up Arrow -->
+</div><!-- END: Fifth Row -->
+
+<div class="keyboard-row"><!-- START: Sixth Row -->
+<span class="key" id="ControlLeft">Ctrl</span>
+<!-- <span class="key" id="MetaLeft">&#128269;</span> -->
+<span class="key" id="AltLeft">Alt</span>
+<span class="key" id="Space">Space Bar</span>
+<span class="key" id="AltRight" >Alt</span>
+<!-- <span class="key" id="MetaRight">âŠž</span> -->
+<!-- <span class="key" id="ContextMenu">â–¤</span> -->
+<span class="key" id="ControlRight">Ctrl</span>
+<span class="key" id="ArrowLeft">&#8592</span> <!-- Left Arrow -->
+<span class="key" id="ArrowDown">&#8595</span> <!-- Down Arrow -->
+<span class="key" id="ArrowRight">&#8594</span> <!-- Right Arrow -->
+</div><!-- END: Sixth Row -->
+</div><!-- END: Keyboard Main Area-->
+
+<div class="keyboard-mid-area"><!-- START: Keyboard Mid Area-->
+<!-- <div class="keyboard-row">
+<span class="key" id="PrintScreen">PrtSc</span>
+<span class="key" id="ScrollLock">ScrLk</span>
+<span class="key" id="Pause">Pause</span>
+</div>
+<div class="keyboard-row">
+<span class="key" id="Insert">Ins</span>
+<span class="key" id="Home">Home</span>
+<span class="key" id="PageUp">Pg Up</span>
+</div>
+<div class="keyboard-row">
+<span class="key" id="Delete">Del</span>
+<span class="key" id="End">End</span>
+<span class="key" id="PageDown">Pg Dn</span>
+</div>
+<div class="keyboard-row">
+<span class="key key-empty"></span>
+</div> -->
+
+<!--<div class="keyboard-row">
+<span class="key key-empty"></span>
+<span class="key" id="ArrowUp">&#8593</span>--> <!-- Up Arrow -->
+<!--</div>-->
+
+<!--<div class="keyboard-row">
+<span class="key" id="ArrowLeft">&#8592</span>--> <!-- Left Arrow -->
+<!--<span class="key" id="ArrowDown">&#8595</span>--> <!-- Down Arrow -->
+<!--<span class="key" id="ArrowRight">&#8594</span>--> <!-- Right Arrow -->
+<!--</div>
+</div>--><!-- END: Keyboard Mid Area -->
+
+<!--<div class="keyboard-numpad-area">
+<div class="keyboard-row">
+<span class="key" id="AudioVolumeMute">&#x1f507;</span>
+<span class="key" id="AudioVolumeDown">&#x1f509;</span>
+<span class="key" id="AudioVolumeUp">&#x1f50a;</span>
+</div>
+<div class="keyboard-row">
+<span class="key" id="MediaPlayPause"> &#x23ef;</span>
+<span class="key" id="MediaStop"> &#x23f9;</span>
+<span class="key" id="MediaTrackPrevious">&#x23ee;</span>
+<span class="key" id="MediaTrackNext">&#x23ed;</span>
+</div>
+<div class="keyboard-row">
+<span class="key" id="NumLock">Num</span>
+<span class="key" id="NumpadDivide">/</span>
+<span class="key" id="NumpadMultiply">*</span>
+<span class="key" id="NumpadSubtract">-</span>
+</div>
+<div class="keyboard-row">
+<span class="key" id="Numpad7">7</span>
+<span class="key" id="Numpad8">8</span>
+<span class="key" id="Numpad9">9</span>
+<span class="key" id="NumpadAdd">+</span>
+</div>
+<div class="keyboard-row">
+<span class="key" id="Numpad4">4</span>
+<span class="key" id="Numpad5">5</span>
+<span class="key" id="Numpad6">6</span>
+</div>
+<div class="keyboard-row">
+<span class="key" id="Numpad1">1</span>
+<span class="key" id="Numpad2">2</span>
+<span class="key" id="Numpad3">3</span>
+<span class="key" id="NumpadEnter">Enter</span>
+</div>
+<div class="keyboard-row">
+<span class="key" id="Numpad0">0</span>
+<span class="key" id="NumpadDecimal">.</span>
+</div>
+</div>--><!-- END: Keyboard Numpad Area-->
+</div> <!-- END: Keyboard -->
+<br /><br />
+<textarea id="keyboard-test" tabindex="6" onfocus="highlightOnlyOnFocus();" oncontextmenu="event.preventDefault();" rows="2" cols="60"></textarea>
+</div><!-- END: Keyboard Test -->
+</div>
+
+</body>
+</html>
