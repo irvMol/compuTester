@@ -6,10 +6,11 @@
 <link rel="stylesheet" href="assets/css/style.css">
   <!-- external JS link-->
   <script src="assets/js/main.js">
-</script>  
+</script>
+<script src="assets/js/UAParser.js"></script>  
 </head>
 
-<body>
+<body onload="getInfo()">
   <div class="flexy">
     <div><!-- START: Page Title -->
       <h1>Laptop Tester</h1>
@@ -21,10 +22,9 @@
     <div id="system-info"><!-- START: System Information -->
       <h2>System Info:</h2>
 
-      <p id="sysInfo"></p>
-      <script>
-        document.getElementById("sysInfo").innerHTML = platform.description;
-      </script>
+      <p id="sysInfo"> </p>
+    
+
     </div><!-- END: System Information -->
   </div>
 

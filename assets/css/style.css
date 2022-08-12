@@ -38,19 +38,7 @@
     font-weight: 900;
     }
 
-    /* Classes */
-    .background-blue {
-    background-color: #4285F4;
-    }
-    .background-green {
-    background-color: #0F9D58;
-    }
-    .background-red {
-    background-color: #DB4437;
-    }
-    .background-yellow {
-    background-color: #F4B400;
-    }
+
     /* .flex {
     display: flex;
     justify-content: center;

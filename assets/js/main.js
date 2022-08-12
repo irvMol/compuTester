@@ -1,3 +1,12 @@
+function getInfo()
+{    
+    var parser = new UAParser();
+    console.log(parser.getResult());
+
+    document.getElementById("sysInfo").innerHTML = parser.getResult();
+}
+
+//Permissions for tests
 function getPermission() {
     navigator.mediaDevices.getUserMedia({ audio: true, video: true })
       .then(function(stream) {
@@ -34,7 +43,7 @@ navigator.mediaDevices.getUserMedia({ audio: false, video: true }).then(handleSu
 
     function startMic() {
       console.log("Started recording...");
-      if (visualizing == false) {
+      if (!visualizing) {
           visualizing = true;
           audioVisualizer();
       }
