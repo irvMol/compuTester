@@ -806,6 +806,8 @@
             rgxMapper.call(_os, _ua, _rgxmap.os);
             return _os;
         };
+
+
         this.getResult = function () {
             return {
                 ua      : this.getUA(),
@@ -813,7 +815,8 @@
                 engine  : this.getEngine(),
                 os      : this.getOS(),
                 device  : this.getDevice(),
-                cpu     : this.getCPU()
+                cpu     : this.getCPU(),
+  
             };
         };
         this.getUA = function () {
@@ -832,6 +835,7 @@
     UAParser.CPU = enumerize([ARCHITECTURE]);
     UAParser.DEVICE = enumerize([MODEL, VENDOR, TYPE, CONSOLE, MOBILE, SMARTTV, TABLET, WEARABLE, EMBEDDED]);
     UAParser.ENGINE = UAParser.OS = enumerize([NAME, VERSION]);
+
 
     ///////////
     // Export
@@ -855,6 +859,8 @@
             window.UAParser = UAParser;
         }
     }
+
+    
 
     // jQuery/Zepto specific (optional)
     // Note:

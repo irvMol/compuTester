@@ -144,6 +144,7 @@
       display: flex;
       margin-left: 15%;
       margin-right: 15%;
+      justify-content: space-between;
     }
     .break {
       flex-basis: 100%;

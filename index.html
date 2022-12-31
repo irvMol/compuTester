@@ -2,33 +2,23 @@
 <html lang="en">
 <head>
   <title>Chromebook Tester</title>
-  <!-- external CSS link-->
-<link rel="stylesheet" href="assets/css/style.css">
-  <!-- external JS link-->
-  <script src="assets/js/main.js">
-</script>
-<script src="assets/js/UAParser.js"></script>  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body onload="getInfo()">
   <div class="flexy">
     <div><!-- START: Page Title -->
-      <h1>Laptop Tester</h1>
-      
+      <h1>Laptop Tester</h1>      
     </div>
-
-    <hr style="visibility: hidden;" >
 
     <div id="system-info"><!-- START: System Information -->
       <h2>System Info:</h2>
-
-      <p id="sysInfo"> </p>
-    
+      <p id="sysInfo"> </p>   
 
     </div><!-- END: System Information -->
   </div>
-
-  <hr />
 
 <div class="flexy">
     <button class="btn" onclick="getPermission()" tabindex="1 ">Browser permissions</button>
@@ -276,6 +266,11 @@ Your browser does not support the<code>audio</code> element.
 <textarea id="keyboard-test" tabindex="6" onfocus="highlightOnlyOnFocus();" oncontextmenu="event.preventDefault();" rows="2" cols="60"></textarea>
 </div><!-- END: Keyboard Test -->
 </div>
+
+
+<!-- SCRIPTS -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/UAParser.js"></script>  
 
 </body>
 </html>
