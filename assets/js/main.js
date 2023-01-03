@@ -9,30 +9,25 @@ function cleanUp(dirtyString)
 return cleanString;
 }
  
-function geoData(){
+async function getData(){
      
     // let apiKey = ad7e871c6452c8eb60b75432b9f64b23009fe50a92f11d6407198196;
-  const geoData = json(`https://api.ipdata.co?api-key=ad7e871c6452c8eb60b75432b9f64b23009fe50a92f11d6407198196`).then(data => {    
-    
-return(data);
+  let response = await json(`https://api.ipdata.co?api-key=ad7e871c6452c8eb60b75432b9f64b23009fe50a92f11d6407198196`)
+  let data = await response ; 
+    console.log(data);
     // so many more properties
-  });
-
-  const printGeo = async () => {
-    const a = await geoData;
-    console.log(a);
+return data;
   };
 
-  printGeo();
-  
-}
 
-function getInfo()
+async function getInfo()
 {   
     var parser = new UAParser();
     var uaString = "";
+
    
-    geoData();
+    let geoData = await getData();
+    uaString += "Public IP " + geoData.ip +" " + geoData.city+ " " +geoData.emoji_flag + " <br>";
     uaString += "0S " + cleanUp(JSON.stringify(parser.getOS())) + " <br>";
     uaString += "Browser " + cleanUp(JSON.stringify(parser.getBrowser())) + " <br>";
     uaString += "CPU " + cleanUp(JSON.stringify(parser.getCPU()));
@@ -214,3 +209,22 @@ function startWebcam() {
     document.getElementById("keyboard-test").focus();
   }
 
+  const chartBtn = document.getElementById('chartBtn')
+  var chart = document.getElementById("chartPopup");
+    // When the user clicks on <span> (x), close the modal
+    chartBtn.onclick = function() {
+      chart.style.display = "block";
+    }
+    var closeChart = document.getElementById("closeChart");
+  
+    // When the user clicks on <span> (x), close the modal
+    closeChart.onclick = function() {
+      chart.style.display = "none";
+    }
+  
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == popup) {
+        chart.style.display = "none";
+      }
+    }
