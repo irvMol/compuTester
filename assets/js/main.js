@@ -209,22 +209,62 @@ function startWebcam() {
     document.getElementById("keyboard-test").focus();
   }
 
-  const chartBtn = document.getElementById('chartBtn')
-  var chart = document.getElementById("chartPopup");
+  const geoBtn = document.getElementById('geo')
+  var geoPopup = document.getElementById("geoView");
     // When the user clicks on <span> (x), close the modal
-    chartBtn.onclick = function() {
-      chart.style.display = "block";
+    geoBtn.onclick = function() {
+      geoPopup.style.display = "block";
     }
-    var closeChart = document.getElementById("closeChart");
+    var closeB = document.getElementById("closeB");
   
     // When the user clicks on <span> (x), close the modal
-    closeChart.onclick = function() {
-      chart.style.display = "none";
+    closeB.onclick = function() {
+      geoPopup.style.display = "none";
     }
   
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-      if (event.target == popup) {
-        chart.style.display = "none";
+      if (event.target == geoPopup) {
+        geoPopup.style.display = "none";
       }
     }
+
+    const networkBtn = document.getElementById('network')
+    var networkPopup = document.getElementById("networkView");
+      // When the user clicks on <span> (x), close the modal
+      networkBtn.onclick = function() {
+        networkPopup.style.display = "block";
+      }
+      var closeBtn = document.getElementById("closeBtn");
+    
+      // When the user clicks on <span> (x), close the modal
+      closeBtn.onclick = function() {
+        networkPopup.style.display = "none";
+      }
+    
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == networkPopup) {
+            networkPopup.style.display = "none";
+        }
+      }
+
+      const UABtn = document.getElementById('UAgent')
+      var UAPopup = document.getElementById("UAView");
+        // When the user clicks on <span> (x), close the modal
+        UABtn.onclick = function() {
+            UAPopup.style.display = "block";
+        }
+        var closeBtn = document.getElementById("closeBtn");
+      
+        // When the user clicks on <span> (x), close the modal
+        closeBtn.onclick = function() {
+            UAPopup.style.display = "none";
+        }
+      
+        // // When the user clicks anywhere outside of the modal, close it
+        // window.onclick = function(event) {
+        //   if (event.target == UAPopup) {
+        //     UAPopup.style.display = "none";
+        //   }
+        // }
