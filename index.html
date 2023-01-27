@@ -1,133 +1,135 @@
 <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <title>Laptop Tester</title>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-      <link rel="stylesheet" href="assets/css/style.css">
+<html lang="en">
 
-    </head>
+<head>
+  <title>Laptop Tester</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/style.css">
 
-  <body onload="getInfo()">
+</head>
 
-    <header class="header">
-      <a href="#"><img class="logo" src="assets/images/logo.png" alt="logo"></a>    
-      
-      <nav class="nav">
-        <a class="active" href="#home">Home</a>
-        <a id="geo" href="#geo">Geolocation</a>
-        <a id="network" href="#network">Network</a>
-        <a id="UAgent" href="#UAgent">User Agent</a>
-      </nav>
-    </header>
+<body>
 
-<!-- Geolocation Popup-->
-    <div id="geoView" class="popup">
-      <!-- window content -->
-      <div class="popup-content">
-          <i id="closeB" class="popBtn fa-solid fa-circle-xmark"></i>
-          <h2>Geolocation Info:</h2>
-          <p id="geoInfo"> </p>
-      </div>
-    
+  <header class="header">
+    <a href="#"><img class="logo" src="assets/images/logo.png" alt="logo"></a>
+
+    <nav class="nav">
+      <a class="active" href="#">Home</a>
+      <a id="geo" href="#">Geolocation</a>
+      <a id="network" href="#">Network</a>
+      <a id="UAgent" href="#">User Agent</a>
+    </nav>
+  </header>
+
+  <!-- Geolocation Popup-->
+  <div id="geoView" class="popup">
+    <!-- window content -->
+    <div class="popup-content">
+      <i class="closeBtn" class="popBtn fa-solid fa-circle-xmark"></i>
+      <h2>Geolocation Info:</h2>
+      <p id="geoInfo"> </p>
     </div>
 
-<!-- Network Popup-->
-    <div id="networkView" class="popup">
-      <!-- window content -->
-      <div class="popup-content">
-          <i id="closeBtn" class="popBtn fa-solid fa-circle-xmark"></i>
-          <h2>Network Info:</h2>
-          <p id="networkInfo"> </p>
-      </div>
-    
+  </div>
+
+  <!-- Network Popup-->
+  <div id="networkView" class="popup">
+    <!-- window content -->
+    <div class="popup-content">
+      <i class="closeBtn" class="popBtn fa-solid fa-circle-xmark"></i>
+      <h2>Network Info:</h2>
+      <h4 id="networkInfo"> </h4>
+      <p>* This test is to be used as an estimate of network speed only. For a more accurate test the compuTester team likes: </p>
+      <a href="https://librespeed.org/">librespeed.</a>
     </div>
 
-<!-- User Agent Popup-->
-    <div id="UAView" class="popup">
-      <!-- window content -->
-      <div class="popup-content">
-          <i id="closeBtn" class="popBtn fa-solid fa-circle-xmark"></i>
-          <h2>User Agent Info:</h2>
-          <p id="sysInfo"> </p>
-      </div>
-    
-    </div>
-  
+  </div>
 
+  <!-- User Agent Popup-->
+  <div id="UAView" class="popup">
+    <!-- window content -->
+    <div class="popup-content">
+      <i class="closeBtn" class="popBtn fa-solid fa-circle-xmark"></i>
+      <h2>User Agent Info:</h2>
+      <p id="UAInfo"> </p>
+    </div>
+
+  </div>
 
   <div class="flexy">
-      <button class="btn" onclick="getPermission()" tabindex="1 ">Browser permissions</button>
-      <hr />
-      <button class="btn" onclick="allTests()" tabindex="2">All Tests</button>
-    </div>
-
-    <div class="break"></div>
+    <button class="btn" onclick="getPermission()" tabindex="1 ">Browser permissions</button>
     <hr />
-
-    <div class="flexy">
-  <div id="mic-test"><!-- START: Mic Test -->
-  <h2 id="mic-status">Microphone Test</h2>
-  <button class="btn" onclick="startMic()" tabindex="2">Start Microphone</button>
-  <br />
-  <label for="recordLength">Recording Length &#40;in seconds&#41;:</label>
-  <input id="recordLength" type="text" value="5" min="3" max="300" tabindex="3" size="1">
-
-  <br />
-  <br />
-  <div id="visualizer-container"><!-- START: Visualizer Container -->
-  <span id="visualizer-height"></span>
-  </div><!-- END: Visualizer Container -->
-  </div><!-- END: Mic Test -->
-
+    <button class="btn" onclick="allTests()" tabindex="2">All Tests</button>
+  </div>
   <hr />
 
-  <div id="webcam-test"><!-- START: Webcam Test -->
-      <h2 id="webcam-status">Webcam Test</h2>
-      <button class="btn" onclick="startWebcam()" tabindex="2">Run webcam</button>
-  <br />
-  <br />
-  <div id="webcamWrapper"><!-- START: Webcam Wrapper -->
-  <video id="videoPlayer" autoplay></video>
-  </div><!-- END: Webcam Wrapper -->
-  </div><!-- END: Webcam Test -->
-    </div>
+  <div class="flexy">
+    <div id="mic-test"><!-- START: Mic Test -->
+      <h2 id="mic-status">Microphone Test</h2>
+      <button class="btn" onclick="startMic()" tabindex="2">Start Microphone</button>
+      <br />
+      <label for="recordLength">Recording Length &#40;in seconds&#41;:</label>
+      <input id="recordLength" type="text" value="5" min="3" max="300" tabindex="3" size="1">
 
-    <div class="break"></div>
+      <br />
+      <br />
+      <div id="visualizer-container"><!-- START: Visualizer Container -->
+        <span id="visualizer-height"></span>
+      </div><!-- END: Visualizer Container -->
+    </div><!-- END: Mic Test -->
+
     <hr />
 
-    <div id="audio-tests" class="flexy"><!-- START: Audio Tests -->
-  <div>
-  <h3>Left Channel</h3>
-  <audio preload="auto" id="leftChannel">
-  <source src="https://cdn.jsdelivr.net/gh/lunu-bounir/audio-equalizer/test/left.ogg" type="audio/ogg">
-  Your browser does not support the<code>audio</code> element.
-  </audio>
-  <button class="btn" onclick="document.getElementById('leftChannel').play()" tabindex="4">Play</button>
+    <div id="webcam-test"><!-- START: Webcam Test -->
+      <h2 id="webcam-status">Webcam Test</h2>
+      <button class="btn" onclick="startWebcam()" tabindex="2">Start webcam</button>
+      <br />
+      <br />
+      <div id="webcamWrapper"><!-- START: Webcam Wrapper -->
+        <video id="videoPlayer" autoplay></video>
+      </div><!-- END: Webcam Wrapper -->
+    </div><!-- END: Webcam Test -->
   </div>
 
-      <hr />
+  <div class="break"></div>
+  <hr />
 
-  <div>
-  <h3>Right Channel</h3>
-  <audio preload="auto" id="rightChannel">
-  <source src="https://cdn.jsdelivr.net/gh/lunu-bounir/audio-equalizer/test/right.ogg" type="audio/ogg">
-  Your browser does not support the<code>audio</code> element.
-  </audio>
-  <button class="btn" onclick="document.getElementById('rightChannel').play()" tabindex="5">Play</button>
-  </div>
-  </div><!-- END: Audio Tests -->
+  <div id="audio-tests" class="flexy"><!-- START: Audio Tests -->
+    <div>
+      <h3>Left Channel</h3>
+      <audio preload="auto" id="leftChannel">
+        <source src="https://cdn.jsdelivr.net/gh/lunu-bounir/audio-equalizer/test/left.ogg" type="audio/ogg">
+        Your browser does not support the<code>audio</code> element.
+      </audio>
+      <button class="btn" id="leftBtn" onclick="document.getElementById('leftChannel').play()"
+        tabindex="4">Play</button>
+    </div>
 
     <hr />
 
     <div>
-  <div id="keyboard-tests"><!-- START: Keyboard Test -->
-  <h2>Keyboard Test</h2>
-  <div id="keyboard"><!-- START: Keyboard -->
-  <div class="keyboard-main-area"><!-- START: Keyboard Main Area -->
-  <div class="keyboard-row"><!-- START: First Row -->
-  <span class="key" id="Escape">Esc</span> &nbsp; Don't forget to check your other top row keys and the headphone jack.
-  <!-- <span class="key key-empty"></span>
+      <h3>Right Channel</h3>
+      <audio preload="auto" id="rightChannel">
+        <source src="https://cdn.jsdelivr.net/gh/lunu-bounir/audio-equalizer/test/right.ogg" type="audio/ogg">
+        Your browser does not support the<code>audio</code> element.
+      </audio>
+      <button class="btn" id="rightBtn" onclick="document.getElementById('rightChannel').play()"
+        tabindex="5">Play</button>
+    </div>
+  </div><!-- END: Audio Tests -->
+
+  <hr />
+
+  <div>
+    <div id="keyboard-tests"><!-- START: Keyboard Test -->
+      <h2>Keyboard Test</h2>
+      <div id="keyboard"><!-- START: Keyboard -->
+        <div class="keyboard-main-area"><!-- START: Keyboard Main Area -->
+          <div class="keyboard-row"><!-- START: First Row -->
+            <span class="key" id="Escape">Esc</span> &nbsp; Don't forget to check your other top row keys and the
+            headphone jack.
+            <!-- <span class="key key-empty"></span>
   <span class="key" id="F1">F1</span>
   <span class="key" id="F2">F2</span>
   <span class="key" id="F3">F3</span>
@@ -140,93 +142,93 @@
   <span class="key" id="F10">F10</span>
   <span class="key" id="F11">F11</span>
   <span class="key" id="F12">F12</span> -->
-  </div><!-- END: First Row -->
+          </div><!-- END: First Row -->
 
-  <div class="keyboard-row"><!-- START: Second Row -->
-  <span class="key" id="Backquote">`</span>
-  <span class="key" id="Digit1">1</span>
-  <span class="key" id="Digit2">2</span>
-  <span class="key" id="Digit3">3</span>
-  <span class="key" id="Digit4">4</span>
-  <span class="key" id="Digit5">5</span>
-  <span class="key" id="Digit6">6</span>
-  <span class="key" id="Digit7">7</span>
-  <span class="key" id="Digit8">8</span>
-  <span class="key" id="Digit9">9</span>
-  <span class="key" id="Digit0">0</span>
-  <span class="key" id="Minus">-</span>
-  <span class="key" id="Equal">=</span>
-  <span class="key" id="Backspace">Backspace</span>
-  </div><!-- END: Second Row -->
+          <div class="keyboard-row"><!-- START: Second Row -->
+            <span class="key" id="Backquote">`</span>
+            <span class="key" id="Digit1">1</span>
+            <span class="key" id="Digit2">2</span>
+            <span class="key" id="Digit3">3</span>
+            <span class="key" id="Digit4">4</span>
+            <span class="key" id="Digit5">5</span>
+            <span class="key" id="Digit6">6</span>
+            <span class="key" id="Digit7">7</span>
+            <span class="key" id="Digit8">8</span>
+            <span class="key" id="Digit9">9</span>
+            <span class="key" id="Digit0">0</span>
+            <span class="key" id="Minus">-</span>
+            <span class="key" id="Equal">=</span>
+            <span class="key" id="Backspace">Backspace</span>
+          </div><!-- END: Second Row -->
 
-  <div class="keyboard-row"><!-- START: Third Row -->
-  <span class="key" id="Tab">Tab</span>
-  <span class="key" id="KeyQ">Q</span>
-  <span class="key" id="KeyW">W</span>
-  <span class="key" id="KeyE">E</span>
-  <span class="key" id="KeyR">R</span>
-  <span class="key" id="KeyT">T</span>
-  <span class="key" id="KeyY">Y</span>
-  <span class="key" id="KeyU">U</span>
-  <span class="key" id="KeyI">I</span>
-  <span class="key" id="KeyO">O</span>
-  <span class="key" id="KeyP">P</span>
-  <span class="key" id="BracketLeft">[</span>
-  <span class="key" id="BracketRight">]</span>
-  <span class="key" id="Backslash">\</span>
-  </div><!-- END: Third Row -->
+          <div class="keyboard-row"><!-- START: Third Row -->
+            <span class="key" id="Tab">Tab</span>
+            <span class="key" id="KeyQ">Q</span>
+            <span class="key" id="KeyW">W</span>
+            <span class="key" id="KeyE">E</span>
+            <span class="key" id="KeyR">R</span>
+            <span class="key" id="KeyT">T</span>
+            <span class="key" id="KeyY">Y</span>
+            <span class="key" id="KeyU">U</span>
+            <span class="key" id="KeyI">I</span>
+            <span class="key" id="KeyO">O</span>
+            <span class="key" id="KeyP">P</span>
+            <span class="key" id="BracketLeft">[</span>
+            <span class="key" id="BracketRight">]</span>
+            <span class="key" id="Backslash">\</span>
+          </div><!-- END: Third Row -->
 
-  <div class="keyboard-row"><!-- START: Fourth Row -->
-  <!-- <span class="key" id="CapsLock"></span> -->
-  <span class="key" id="MetaLeft">&#128269;</span>
-  <span class="key" id="KeyA">A</span>
-  <span class="key" id="KeyS">S</span>
-  <span class="key" id="KeyD">D</span>
-  <span class="key" id="KeyF">F</span>
-  <span class="key" id="KeyG">G</span>
-  <span class="key" id="KeyH">H</span>
-  <span class="key" id="KeyJ">J</span>
-  <span class="key" id="KeyK">K</span>
-  <span class="key" id="KeyL">L</span>
-  <span class="key" id="Semicolon">;</span>
-  <span class="key" id="Quote">'</span>
-  <span class="key" id="Enter">Enter</span>
-  </div><!-- END: Fourth Row -->
+          <div class="keyboard-row"><!-- START: Fourth Row -->
+            <!-- <span class="key" id="CapsLock"></span> -->
+            <span class="key" id="MetaLeft">&#128269;</span>
+            <span class="key" id="KeyA">A</span>
+            <span class="key" id="KeyS">S</span>
+            <span class="key" id="KeyD">D</span>
+            <span class="key" id="KeyF">F</span>
+            <span class="key" id="KeyG">G</span>
+            <span class="key" id="KeyH">H</span>
+            <span class="key" id="KeyJ">J</span>
+            <span class="key" id="KeyK">K</span>
+            <span class="key" id="KeyL">L</span>
+            <span class="key" id="Semicolon">;</span>
+            <span class="key" id="Quote">'</span>
+            <span class="key" id="Enter">Enter</span>
+          </div><!-- END: Fourth Row -->
 
 
-  <div class="keyboard-row"><!-- START: Fifth Row -->
-  <span class="key" id="ShiftLeft">Shift</span>
-  <span class="key" id="KeyZ">Z</span>
-  <span class="key" id="KeyX">X</span>
-  <span class="key" id="KeyC">C</span>
-  <span class="key" id="KeyV">V</span>
-  <span class="key" id="KeyB">B</span>
-  <span class="key" id="KeyN">N</span>
-  <span class="key" id="KeyM">M</span>
-  <span class="key" id="Comma">,</span>
-  <span class="key" id="Period">.</span>
-  <span class="key" id="Slash">/</span>
-  <span class="key" id="ShiftRight">Shift</span>
-  <span class="key" id="ArrowUp">&#8593</span> <!-- Up Arrow -->
-  </div><!-- END: Fifth Row -->
+          <div class="keyboard-row"><!-- START: Fifth Row -->
+            <span class="key" id="ShiftLeft">Shift</span>
+            <span class="key" id="KeyZ">Z</span>
+            <span class="key" id="KeyX">X</span>
+            <span class="key" id="KeyC">C</span>
+            <span class="key" id="KeyV">V</span>
+            <span class="key" id="KeyB">B</span>
+            <span class="key" id="KeyN">N</span>
+            <span class="key" id="KeyM">M</span>
+            <span class="key" id="Comma">,</span>
+            <span class="key" id="Period">.</span>
+            <span class="key" id="Slash">/</span>
+            <span class="key" id="ShiftRight">Shift</span>
+            <span class="key" id="ArrowUp">&#8593</span> <!-- Up Arrow -->
+          </div><!-- END: Fifth Row -->
 
-  <div class="keyboard-row"><!-- START: Sixth Row -->
-  <span class="key" id="ControlLeft">Ctrl</span>
-  <!-- <span class="key" id="MetaLeft">&#128269;</span> -->
-  <span class="key" id="AltLeft">Alt</span>
-  <span class="key" id="Space">Space Bar</span>
-  <span class="key" id="AltRight" >Alt</span>
-  <!-- <span class="key" id="MetaRight">âŠž</span> -->
-  <!-- <span class="key" id="ContextMenu">â–¤</span> -->
-  <span class="key" id="ControlRight">Ctrl</span>
-  <span class="key" id="ArrowLeft">&#8592</span> <!-- Left Arrow -->
-  <span class="key" id="ArrowDown">&#8595</span> <!-- Down Arrow -->
-  <span class="key" id="ArrowRight">&#8594</span> <!-- Right Arrow -->
-  </div><!-- END: Sixth Row -->
-  </div><!-- END: Keyboard Main Area-->
+          <div class="keyboard-row"><!-- START: Sixth Row -->
+            <span class="key" id="ControlLeft">Ctrl</span>
+            <!-- <span class="key" id="MetaLeft">&#128269;</span> -->
+            <span class="key" id="AltLeft">Alt</span>
+            <span class="key" id="Space">Space Bar</span>
+            <span class="key" id="AltRight">Alt</span>
+            <!-- <span class="key" id="MetaRight">âŠž</span> -->
+            <!-- <span class="key" id="ContextMenu">â–¤</span> -->
+            <span class="key" id="ControlRight">Ctrl</span>
+            <span class="key" id="ArrowLeft">&#8592</span> <!-- Left Arrow -->
+            <span class="key" id="ArrowDown">&#8595</span> <!-- Down Arrow -->
+            <span class="key" id="ArrowRight">&#8594</span> <!-- Right Arrow -->
+          </div><!-- END: Sixth Row -->
+        </div><!-- END: Keyboard Main Area-->
 
-  <div class="keyboard-mid-area"><!-- START: Keyboard Mid Area-->
-  <!-- <div class="keyboard-row">
+        <div class="keyboard-mid-area"><!-- START: Keyboard Mid Area-->
+          <!-- <div class="keyboard-row">
   <span class="key" id="PrintScreen">PrtSc</span>
   <span class="key" id="ScrollLock">ScrLk</span>
   <span class="key" id="Pause">Pause</span>
@@ -245,19 +247,19 @@
   <span class="key key-empty"></span>
   </div> -->
 
-  <!--<div class="keyboard-row">
+          <!--<div class="keyboard-row">
   <span class="key key-empty"></span>
   <span class="key" id="ArrowUp">&#8593</span>--> <!-- Up Arrow -->
-  <!--</div>-->
+          <!--</div>-->
 
-  <!--<div class="keyboard-row">
+          <!--<div class="keyboard-row">
   <span class="key" id="ArrowLeft">&#8592</span>--> <!-- Left Arrow -->
-  <!--<span class="key" id="ArrowDown">&#8595</span>--> <!-- Down Arrow -->
-  <!--<span class="key" id="ArrowRight">&#8594</span>--> <!-- Right Arrow -->
-  <!--</div>
+          <!--<span class="key" id="ArrowDown">&#8595</span>--> <!-- Down Arrow -->
+          <!--<span class="key" id="ArrowRight">&#8594</span>--> <!-- Right Arrow -->
+          <!--</div>
   </div>--><!-- END: Keyboard Mid Area -->
 
-  <!--<div class="keyboard-numpad-area">
+          <!--<div class="keyboard-numpad-area">
   <div class="keyboard-row">
   <span class="key" id="AudioVolumeMute">&#x1f507;</span>
   <span class="key" id="AudioVolumeDown">&#x1f509;</span>
@@ -297,17 +299,20 @@
   <span class="key" id="NumpadDecimal">.</span>
   </div>
   </div>--><!-- END: Keyboard Numpad Area-->
-  </div> <!-- END: Keyboard -->
-  <br /><br />
-  <textarea id="keyboard-test" tabindex="6" onfocus="highlightOnlyOnFocus();" oncontextmenu="event.preventDefault();" rows="2" cols="60"></textarea>
-  </div><!-- END: Keyboard Test -->
-  </div>
+        </div> <!-- END: Keyboard -->
+        <br /><br />
+        <textarea id="keyboard-test" tabindex="6" onfocus="highlightOnlyOnFocus();"
+          oncontextmenu="event.preventDefault();" rows="2" cols="60"></textarea>
+      </div><!-- END: Keyboard Test -->
+    </div>
 
 
-  <!-- SCRIPTS -->
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/UAParser.js"></script>
- 
+    <!-- SCRIPTS -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/UAParser.js"></script>
+    <script src="assets/js/test.js"></script>
 
-  </body>
-  </html>
+
+</body>
+
+</html>
