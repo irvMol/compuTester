@@ -1,0 +1,47 @@
+{
+
+    "subtitle": "Simplificando la palabra \"Diagnostico\"",
+
+    "tests-heading": "Pruebas",
+
+    "sidebar-button": "Mas Pruebas",
+
+    "home-link": "Inicio",
+
+    "geo-link": "ubicación",
+
+    "network-link": "Red",
+
+    "ua-link": "Dispositivo",
+
+    "contact-heading": "Contactanos",
+
+    "geo-title": "Informacion de Ubicacion",
+
+    "network-title": "Informacion de Red",
+
+    "network-disclaimer": "* Los resultados son un estimado solamente. Para una prueba mas exacta, el equipo Computester recomienda: ",
+
+    "ua-title": "Informacion de Dispositivo ",
+
+    "mic-title": "Microfono",
+
+    "mic-button": "Activa Microfono",
+
+    "record-length": "Duracion de grabacion (en segundos): ",
+
+    "webcam-title": "Camara Web",
+
+    "webcam-button": "Activa Camara Web",
+
+    "left-channel": "Bocina Izquierda",
+
+    "audio-button": "Reproducir",
+
+    "right-channel": "Bocina Derecha",
+
+    "keyboard-title": "Prueba de Teclado",
+
+    "check-reminder": "No olvides revisar entrada de audifono y las teclas restantes."
+
+  }

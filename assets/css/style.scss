@@ -1,0 +1,244 @@
+/*
+*
+* ==========================================
+* SCSS VARIABLES
+* ==========================================
+*
+*/
+
+$color_1: black;
+$color_2: rgb(23, 26, 29);
+$color_3: rgb(0, 89, 253);
+$color_4: rgb(70, 69, 69);
+$font-family_1: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-family_2: 'Courier New', Courier, monospace;
+$background-color_1: lightgray;
+$background-color_2: lightgreen;
+$background-color_3: rgb(42, 233, 42);
+$background-color_4: rgb(0, 0, 0);
+$background-color_5: rgba(0,0,0,0.4);
+$background-color_6: #62fc7c;
+
+
+/* Audio Visualizer */
+/* Adding so you don't have to scroll */
+/* POP UP HERO SECTION */
+/* The popup */
+/* Modal Content/Box */
+/* The Close Button */
+/* demo */
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+/* for toggle behavior */
+/*
+*
+*
+*/
+* {
+	font-family: $font-family_1;
+}
+body {
+	background-image: linear-gradient(rgba(35, 219, 252, 0.5), rgba(81, 143, 158, 0.5), rgba(95, 204, 255, 0.5), rgba(10, 75, 43, 0.5));
+	text-align: center;
+	background: #599fd9;
+	background: -webkit-linear-gradient(to right, #599fd9, #c2e59c);
+	background: linear-gradient(to right, #599fd9, #c2e59c);
+	min-height: 100vh;
+	overflow-x: hidden;
+	color: $color_2;
+}
+button {
+	padding: 0.5em;
+	border-radius: 15px;
+	&:hover {
+		background-color: $background-color_1;
+		cursor: pointer;
+	}
+}
+p {
+	line-height: 2em;
+	text-align: center;
+	margin: auto;
+}
+li {
+	list-style: none;
+}
+
+/* Classes */
+.separator {
+	margin: 3rem 0;
+	border-bottom: 1px dashed #fff;
+}
+.text-uppercase {
+	letter-spacing: 0.1em;
+}
+
+.subtitle{
+	color: $color_4;
+}
+
+.key {
+	font-family: $font-family_2;
+	font-size: 0.75em;
+	min-width: 3em;
+	min-height: 1.5em;
+	margin: 0.1em;
+	border: 2px solid gray;
+	padding: 0.5em;
+}
+.keyboard-main-area {
+	display: inline-block;
+}
+.page-container {
+	text-align: center;
+	div {
+		text-align: center;
+	}
+}
+#Space {
+	width: 18em;
+}
+#AltLeft {
+	width: 6em;
+}
+#AltRight {
+	width: 6em;
+}
+#ControlLeft {
+	width: 6em;
+}
+#ControlRight {
+	width: 6em;
+}
+#videoPlayer {
+	border: 1px solid black;
+	width: 321px;
+	height: 241px;
+}
+#Numpad0 {
+	width: 7.5em;
+}
+#visualizer-container {
+	height: 200px;
+	border: 1px solid black;
+	width: 306px;
+	margin: auto;
+}
+.visualizer-container-bar {
+	max-height: 200px;
+	display: inline-block;
+	background: black;
+	margin: 0 2px;
+	width: 2px;
+}
+#visualizer-height {
+	height: 200px;
+	display: inline-block;
+	background: transparent;
+	margin: 0;
+	width: 0;
+	position: relative;
+}
+.logo {
+	max-width: 150px;
+	max-height: 150px;
+	margin: 15px;
+}
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.btn {
+	margin-left: 10%;
+	margin-right: 10%;
+	width: 80%;
+}
+.popup {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: $background-color_4;
+	background-color: $background-color_5;
+}
+.popup-content {
+	background-color: $background-color_6;
+	margin: 15% auto;
+	padding: 20px;
+	border-radius: 10px;
+	width: 80%;
+	height: auto;
+}
+.popBtn {
+	color: $color_2;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	&:hover {
+		color: $color_3;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	&:focus {
+		color: $color_3;
+		text-decoration: none;
+		cursor: pointer;
+	}
+}
+.vertical-nav {
+	min-width: 17rem;
+	width: 17rem;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+	transition: all 0.4s;
+}
+.page-content {
+	width: calc(100% - 17rem);
+	margin-left: 17rem;
+	transition: all 0.4s;
+}
+#sidebar.active {
+	margin-left: -17rem;
+}
+#content.active {
+	width: 100%;
+	margin: 0;
+}
+
+@media (max-width: 768px) {
+	#sidebar {
+		margin-left: -17rem;
+	}
+	#sidebar.active {
+		margin-left: 0;
+	}
+	#content {
+		width: 100%;
+		margin: 0;
+	}
+	#content.active {
+		margin-left: 17rem;
+		width: calc(100% - 17rem);
+	}
+}
+
+@media (max-width: 480px) {
+	#keyboard-section {
+		display: none;
+	}
+
+}

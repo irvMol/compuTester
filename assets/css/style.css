@@ -1,212 +1,252 @@
-
-    * {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-    background-image: linear-gradient(rgba(35, 219, 252, 0.5), rgba(81, 143, 158, 0.5), rgba(95, 204, 255, 0.5), rgba(10, 75, 43, 0.5));
-    text-align: center;
-    }
-
-    button {
-    padding: 0.5em;
-    border-radius: 10px;
-    }
-
-    button:hover{
-    background-color: lightgray;
-    cursor: pointer;
-    }
-
-    dt, dd {
-    display: inline-flex;
-    }
-
-    dt{
-    font-weight: bold;
-    }
-
-    nav a {
-    display: inline-block;
-    padding: 1em;
-    border-radius: 10%;
-    text-decoration: none;
-    color: black;
-    }
-
-    nav a:hover{
-    background-color: lightgreen;
-    }
-
-    nav a:active{
-      background-color: rgb(42, 233, 42);
-    }
-
-    p {
-    line-height: 2em;
-    text-align: center;
-    margin: auto;
-    }
-
-    strong{
-    font-weight: 900;
-    }
-
-    .inline-block {
-    display: inline-block;
-    }
-
-    .key, .key-empty {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.75em;
-    min-width: 3em;
-    min-height: 1.5em;
-    margin: 0.1em;
-    border: 2px solid gray;
-    padding: 0.5em;
-    }
-    .key-empty{
-    border: 2px solid rgba(255, 255, 255, 0);
-    }
-    .keyboard-row {
-    display: flex;
-    }
-    .margin {
-    margin: 1em;
-    }
-    .media-control-keys{
-    justify-content: right;
-    }
-    .padding{
-    padding: 2em;
-    }
-    .text-left {
-    text-align: left;
-    }
-    .text-right {
-    text-align: right;
-    }
-    .text-center {
-    text-align: center;
-    }
-    .title a {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    text-decoration: none;
-    color: black;
-    }
-    .keyboard-main-area, .keyboard-mid-area, .keyboard-numpad-area {
-    display: inline-block;
-    }
-    .page-container, .page-container div{
-    text-align: center;
-    }
-
-    /* IDs */
-    #Space {
-    width: 18em;
-    }
-    #AltLeft, #AltRight, #ControlLeft, #ControlRight {
-    width: 6em;
-    }
-    #videoPlayer {
-    border: 1px solid black;
-    width: 321px;
-    height: 241px;
-    }
-    #Numpad0 {
-    width: 7.5em;
-    }
-
-    /* Audio Visualizer */
-
-    #visualizer-container {
-    height: 200px;
-    border: 1px solid black;
-    width: 306px;
-    margin: auto;
-    }
-    .visualizer-container-bar {
-    max-height: 200px;
-    display: inline-block;
-    background: black;
-    margin: 0 2px;
-    width: 2px;
-    }
-    #visualizer-height{
-    height: 200px;
-    display: inline-block;
-    background: transparent;
-    margin: 0;
-    width: 0;
-    position: relative;
-    }
-
-    /* Adding so you don't have to scroll */
-
-    .logo{
-      max-width: 150px;
-      max-height: 150px;
-      margin: 15px;
-    }
-
-    .header{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .flexy {
-      display: flex;
-      margin-left: 15%;
-      margin-right: 15%;
-      justify-content: space-between;
-    }
-    .break {
-      flex-basis: 100%;
-      height: 0;
-    }
-    .btn {
-        margin-left: 10%;
-        margin-right: 10%;
-      width: 80%;
-    }
-
-     /* POP UP HERO SECTION */
-
- /* The popup */
- .popup {
-  display: none; /*  Show by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+/*
+*
+* ==========================================
+* SCSS VARIABLES
+* ==========================================
+*
+*/
+/* Audio Visualizer */
+/* Adding so you don't have to scroll */
+/* POP UP HERO SECTION */
+/* The popup */
+/* Modal Content/Box */
+/* The Close Button */
+/* demo */
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+/* for toggle behavior */
+/*
+*
+*
+*/
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Modal Content/Box */
+body {
+  background-image: linear-gradient(rgba(35, 219, 252, 0.5), rgba(81, 143, 158, 0.5), rgba(95, 204, 255, 0.5), rgba(10, 75, 43, 0.5));
+  text-align: center;
+  background: #599fd9;
+  background: linear-gradient(to right, #599fd9, #c2e59c);
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: rgb(23, 26, 29);
+}
+
+button {
+  padding: 0.5em;
+  border-radius: 15px;
+}
+button:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+p {
+  line-height: 2em;
+  text-align: center;
+  margin: auto;
+}
+
+li {
+  list-style: none;
+}
+
+/* Classes */
+.separator {
+  margin: 3rem 0;
+  border-bottom: 1px dashed #fff;
+}
+
+.text-uppercase {
+  letter-spacing: 0.1em;
+}
+
+.subtitle {
+  color: rgb(70, 69, 69);
+}
+
+.key {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75em;
+  min-width: 3em;
+  min-height: 1.5em;
+  margin: 0.1em;
+  border: 2px solid gray;
+  padding: 0.5em;
+}
+
+.keyboard-main-area {
+  display: inline-block;
+}
+
+.page-container {
+  text-align: center;
+}
+.page-container div {
+  text-align: center;
+}
+
+#Space {
+  width: 18em;
+}
+
+#AltLeft {
+  width: 6em;
+}
+
+#AltRight {
+  width: 6em;
+}
+
+#ControlLeft {
+  width: 6em;
+}
+
+#ControlRight {
+  width: 6em;
+}
+
+#videoPlayer {
+  border: 1px solid black;
+  width: 321px;
+  height: 241px;
+}
+
+#Numpad0 {
+  width: 7.5em;
+}
+
+#visualizer-container {
+  height: 200px;
+  border: 1px solid black;
+  width: 306px;
+  margin: auto;
+}
+
+.visualizer-container-bar {
+  max-height: 200px;
+  display: inline-block;
+  background: black;
+  margin: 0 2px;
+  width: 2px;
+}
+
+#visualizer-height {
+  height: 200px;
+  display: inline-block;
+  background: transparent;
+  margin: 0;
+  width: 0;
+  position: relative;
+}
+
+.logo {
+  max-width: 150px;
+  max-height: 150px;
+  margin: 15px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 .popup-content {
   background-color: #62fc7c;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
   padding: 20px;
-  border-radius: 10px ;
-  width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 10px;
+  width: 80%;
   height: auto;
 }
 
-/* The Close Button */
 .popBtn {
-  color: rgb(110, 110, 110);
+  color: rgb(23, 26, 29);
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
-
-.popBtn:hover,
+.popBtn:hover {
+  color: rgb(0, 89, 253);
+  text-decoration: none;
+  cursor: pointer;
+}
 .popBtn:focus {
   color: rgb(0, 89, 253);
   text-decoration: none;
   cursor: pointer;
-} 
+}
+
+.vertical-nav {
+  min-width: 17rem;
+  width: 17rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+}
+
+.page-content {
+  width: calc(100% - 17rem);
+  margin-left: 17rem;
+  transition: all 0.4s;
+}
+
+#sidebar.active {
+  margin-left: -17rem;
+}
+
+#content.active {
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -17rem;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+  #content {
+    width: 100%;
+    margin: 0;
+  }
+  #content.active {
+    margin-left: 17rem;
+    width: calc(100% - 17rem);
+  }
+}
+@media (max-width: 480px) {
+  #keyboard-section {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */

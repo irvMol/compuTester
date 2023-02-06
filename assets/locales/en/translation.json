@@ -1,0 +1,47 @@
+{
+
+    "subtitle": "Simplifying the word \"Diagnostics\" ",
+
+    "tests-heading": "Tests",
+
+    "sidebar-button": "More Tests",
+
+    "home-link": "Home",
+
+    "geo-link": "Geolocation",
+
+    "network-link": "Network Tests",
+
+    "ua-link": "User Agent",
+
+    "contact-heading": "Contact Us",
+
+    "geo-title": "Geolocation Info",
+
+    "network-title": "Network Info",
+
+    "network-disclaimer": "* This test is to be used as an estimate of network speed only. For a more accurate test the compuTester team likes: ",
+
+    "ua-title": "User Agent Info: ",
+
+    "mic-title": "Microphone Test",
+
+    "mic-button": "Start Microphone",
+
+    "record-length": "Recording Length (in seconds): ",
+
+    "webcam-title": "Webcam Test",
+
+    "webcam-button": "Start webcam",
+
+    "left-channel": "Left Channel",
+
+    "audio-button": "Play",
+
+    "right-channel": "Right Channel",
+
+    "keyboard-title": "Keyboard Test",
+
+    "check-reminder": "Don't forget to check your other top row keys and the headphone jack."
+
+  }
