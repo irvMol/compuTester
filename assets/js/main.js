@@ -6,6 +6,7 @@ geoBtn.onclick = showGeo;
 networkBtn.onclick = showNetwork;
 UABtn.onclick = showUA;
 
+
 // <!-- wait for specified number of milliseconds, used in allTests and testMic, use with async functions-->
 function sleep(s) {
   return new Promise(resolve => setTimeout(resolve, s * 1000));
@@ -57,7 +58,7 @@ function startWebcam() {
 function startMic() {
 
   const audioChunks = [];
-  var recordLength = document.getElementById("recordLength").value;
+  const recordLength = document.getElementById("recordLength").value;
   var visualizing = false;
 
   if (!visualizing) {
@@ -116,7 +117,7 @@ async function showGeo() {
   geoPopup.style.display = "block";
 
 
-  var closeBtn = document.getElementsByClassName("closeBtn");
+  var closeBtn = document.getElementById("closeGeoBtn");
 
   // When the user clicks on <span> (x), close the modal
   closeBtn.onclick = function () {
@@ -175,7 +176,7 @@ async function getNetwork() {
 
 async function showNetwork() {
 
-  var networkPopup = document.getElementById("networkView");
+  const networkPopup = document.getElementById("networkView");
   networkPopup.style.display = "block";
 
   document.getElementById("networkInfo").innerHTML = "Running test...";
@@ -184,7 +185,7 @@ async function showNetwork() {
   document.getElementById("networkInfo").innerHTML = `Your network speed is roughly ${networkString.Mbps} megabits per second.`;
 
 
-  var closeBtn = document.getElementsByClassName("closeBtn");
+  const closeBtn = document.getElementById("closeNetworkBtn");
 
 
   // When the user clicks on <span> (x), close the modal
@@ -227,10 +228,10 @@ async function showUA() {
   cpuList.innerHTML= "CPU: " + UA.cpu.architecture+ " <br>";
   browserList.innerHTML = "Browser: " + UA.browser.name;
 
-  var UAPopup = document.getElementById("UAView");
+  const UAPopup = document.getElementById("UAView");
   UAPopup.style.display = "block";
 
-  var closeBtn = document.getElementsByClassName("closeBtn");
+  const closeBtn = document.getElementById("closeUABtn");
 
   // When the user clicks on <span> (x), close the modal
   closeBtn.onclick = function () {

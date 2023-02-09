@@ -15,8 +15,9 @@
   <!-- Vertical navbar -->
   <div class="vertical-nav bg-white" id="sidebar">
     <div class="py-4 px-3 mb-4 bg-light">
-      <div class="media d-flex align-items-center"><img src="assets/images/logo.png" alt="logo" width="65"
-          class="mr-3 rounded-circle img-thumbnail shadow-sm">
+      <div class="media d-flex align-items-center">
+        <img src="assets/images/logo.png" alt="logo" width="65"
+          class="mr-3 shadow-sm">
         <div class="media-body">
           <h4 class="m-0">CompuTester</h4>
           <p data-i18n-key="subtitle" class="font-weight-light text-muted mb-0 subtitle">Making laptop diagnostics
@@ -25,13 +26,13 @@
       </div>
     </div>
 
-    <p data-i18n-key="tests-heading" class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Tests</p>
+    <p data-i18n-key="tests-heading" class="font-weight-bold text-uppercase px-3 small pb-4 mb-0">Tests</p>
 
     <ul class="nav flex-column bg-white mb-0">
       <li class="nav-item">
         <a href="#" class="nav-link text-dark font-italic bg-light">
-          <i class="fa-solid fa-house mr-3 text-primary fa-fw"></i>
-          <span data-i18n-key="home-link">Home</span>
+          <i class="fa-solid fa-computer mr-3 text-primary fa-fw"></i>
+          <span data-i18n-key="main-test-link">Peripherals</span>
         </a>
       </li>
       <li class="nav-item">
@@ -91,14 +92,15 @@
 
   <div class="page-content p-5" id="content">
     <!-- Toggle button -->
-    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4">
+    <button id="sidebarCollapse" type="button" class="btn btn-primary btn-light rounded-pill shadow-lg px-4 mb-4">
       <i class="fa fa-bars mr-2"></i>
       <small data-i18n-key="sidebar-button" class="text-uppercase font-weight-bold" id="sidebarBtn">More Tests</small>
     </button>
 
     <!-- Title -->
-    <h2 class="display-4">CompuTester</h2>
-    <p data-i18n-key="subtitle" class="lead mb-0 subtitle">Making device diagnostics simple.</p>
+
+    <!-- <h2 class="display-4">CompuTester</h2>
+    <p data-i18n-key="subtitle" class="lead mb-0 subtitle">Making device diagnostics simple.</p> -->
 
 
     <!-- popups -->
@@ -110,7 +112,7 @@
         <div id="geoView" class="popup">
           <!-- window content -->
           <div class="popup-content">
-            <i class="closeBtn" class="popBtn fa-solid fa-circle-xmark"></i>
+            <i id="closeGeoBtn" class="popBtn fa-regular fa-circle-xmark"></i>
             <h2 data-i18n-key="geo-title">Geolocation Info:</h2>
             <p id="geoInfo"> </p>
           </div>
@@ -121,13 +123,11 @@
         <div id="networkView" class="popup">
           <!-- window content -->
           <div class="popup-content">
-            <i class="closeBtn" class="popBtn fa-regular fa-circle-xmark"></i>
+            <i id="closeNetworkBtn" class=" popBtn fa-regular fa-circle-xmark"></i>
             <h2 data-i18n-key="network-title">Network Info:</h2>
             <h4 id="networkInfo"> </h4>
             <small data-i18n-key="network-disclaimer">* This test is to be used as an estimate of network speed only.
-              For a more accurate test the
-              compuTester team
-              likes: </small>
+              For a more accurate test the compuTester team likes: </small>
             <a href="https://librespeed.org/">librespeed.</a>
           </div>
 
@@ -137,7 +137,7 @@
         <div id="UAView" class="popup">
           <!-- window content -->
           <div class="popup-content">
-            <i class="closeBtn" class="popBtn fa-solid fa-circle-xmark"></i>
+            <i id="closeUABtn" class="popBtn fa-regular fa-circle-xmark"></i>
             <h2 data-i18n-key="ua-title">User Agent Info:</h2>
             <ul>
               <li id="os"></li>
@@ -162,11 +162,11 @@
         </div> -->
 
     <!-- core tests -->
-    <div class="row d-flex justify-content-around">
+    <div id="main-tests" class="d-flex justify-content-around">
       <div class="col-lg-7">
         <div id="mic-test"><!-- START: Mic Test -->
           <h2 data-i18n-key="mic-title" id="mic-status">Microphone Test</h2>
-          <button data-i18n-key="mic-button" class="btn" onclick="startMic()" tabindex="2">Start Microphone</button>
+          <button data-i18n-key="mic-button" class="btn btn-light btn-secondary rounded-pill shadow-sm px-4 mb-4" onclick="startMic()" tabindex="2">Start Microphone</button>
 
           <label data-i18n-key="record-length" for="recordLength">Recording Length (in seconds):</label>
           <input id="recordLength" type="text" value="5" min="3" max="300" tabindex="3" size="1">
@@ -178,10 +178,10 @@
         </div><!-- END: Mic Test -->
       </div>
 
-      <div class="col-lg-5">
+      <div class="col-lg-5 d-flex flex-column">
         <div id="webcam-test"><!-- START: Webcam Test -->
           <h2 data-i18n-key="webcam-title" id="webcam-status">Webcam Test</h2>
-          <button data-i18n-key="webcam-button" class="btn" onclick="startWebcam()" tabindex="2">Start webcam</button>
+          <button data-i18n-key="webcam-button" class="btn btn-light btn-secondary rounded-pill shadow-sm px-4 mb-4" onclick="startWebcam()" tabindex="2">Start webcam</button>
 
           <div id="webcamWrapper"><!-- START: Webcam Wrapper -->
             <video id="videoPlayer" autoplay></video>
@@ -193,14 +193,14 @@
     <div class="separator"></div>
 
     <div class="row d-flex justify-content-around">
-      <!-- <div class="col-lg-12"> -->
+      
       <!-- START: Audio Tests -->
       <div>
         <h3 data-i18n-key="left-channel">Left Channel</h3>
         <audio preload="auto" id="leftChannel">
           <source src="https://cdn.jsdelivr.net/gh/lunu-bounir/audio-equalizer/test/left.ogg" type="audio/ogg">
         </audio>
-        <button data-i18n-key="audio-button" class="btn" id="leftBtn"
+        <button data-i18n-key="audio-button" class="btn btn-light btn-secondary rounded-pill shadow-sm" id="leftBtn"
           onclick="document.getElementById('leftChannel').play()" tabindex="4">Play</button>
       </div>
 
@@ -209,10 +209,10 @@
         <audio preload="auto" id="rightChannel">
           <source src="https://cdn.jsdelivr.net/gh/lunu-bounir/audio-equalizer/test/right.ogg" type="audio/ogg">
         </audio>
-        <button data-i18n-key="audio-button" class="btn" id="rightBtn"
+        <button data-i18n-key="audio-button" class="btn btn-light btn-secondary rounded-pill shadow-sm" id="rightBtn"
           onclick="document.getElementById('rightChannel').play()" tabindex="5">Play</button>
       </div>
-      <!-- </div> -->
+      
     </div>
 
     <div class="separator"></div>
