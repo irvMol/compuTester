@@ -1,4 +1,3 @@
-add footer with links
 improve responsiveness
 Readme.md
 improve keyboard test code

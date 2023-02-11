@@ -250,15 +250,10 @@ async function showUA() {
 
 $(function() {
   // Sidebar toggle behavior
-  $('#sidebarCollapse').on('click', function() {
-    $('#sidebar, #content').toggleClass('active');
+  $('#vertSidebarCollapse').on('click', function() {
+    $('#vertical-sidebar, #content').toggleClass('active');
   });
 });
-
-
-
-
-
 
 ///////////////////////////////////////////////////////////////////// These functions still need cleaned up
 

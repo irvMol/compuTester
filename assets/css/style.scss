@@ -58,6 +58,10 @@ button {
 		background-color: $background-color_1;
 		cursor: pointer;
 	}
+
+	&:focus {
+		background-color: $background-color_1;
+	}
 }
 
 p {
@@ -132,9 +136,6 @@ li {
 	height: 241px;
 }
 
-#Numpad0 {
-	width: 7.5em;
-}
 
 #visualizer-container {
 	height: 200px;
@@ -237,8 +238,9 @@ li {
 	transition: all 0.4s;
 }
 
-#sidebar.active {
+#vertical-sidebar.active {
 	margin-left: -17rem;
+	
 }
 
 #content.active {
@@ -246,12 +248,16 @@ li {
 	margin: 0;
 }
 
+ .test {
+	margin: 10px;
+  }
+
 @media (max-width: 768px) {
-	#sidebar {
+	#vertical-sidebar {
 		margin-left: -17rem;
 	}
 
-	#sidebar.active {
+	#vertical-sidebar.active {
 		margin-left: 0;
 	}
 
@@ -264,18 +270,19 @@ li {
 		margin-left: 17rem;
 		width: calc(100% - 17rem);
 	}
-}
 
-@media (max-width: 480px) {
+	// test
 	#keyboard-section {
 		display: none;
 	}
 
-	#sidebarBtn {
-		display: none;
-	}
-
-	#main-tests {
+	#micCamTests{
 		flex-direction: column;
 	}
+
+	#visualizer-container, #videoPlayer{
+		max-width: 50%;
+		max-height: 50%;
+	}
+
 }

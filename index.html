@@ -12,12 +12,12 @@
 </head>
 
 <body>
+
   <!-- Vertical navbar -->
-  <div class="vertical-nav bg-white" id="sidebar">
+  <div class="vertical-nav bg-white" id="vertical-sidebar">
     <div class="py-4 px-3 mb-4 bg-light">
       <div class="media d-flex align-items-center">
-        <img src="assets/images/logo.png" alt="logo" width="65"
-          class="mr-3 shadow-sm">
+        <img src="assets/images/logo.png" alt="logo" width="65" class="mr-3 shadow-sm">
         <div class="media-body">
           <h4 class="m-0">CompuTester</h4>
           <p data-i18n-key="subtitle" class="font-weight-light text-muted mb-0 subtitle">Making laptop diagnostics
@@ -61,16 +61,16 @@
     <ul class="nav flex-column bg-white mb-0">
       <li class="nav-item">
         <a href="https://github.com/irvMol/compuTester" class="nav-link text-dark font-italic">
-          <i class="fa-brands fa-github mr-3 text-primary fa-fw"></i>
-          Github
+          <i class="fa-brands fa-github mr-2 text-primary fa-fw"></i>
+          <span>Github</span>
         </a>
       </li>
-      <!-- <li class="nav-item">
+      <li class="nav-item">
         <a href="https://irvmol.com" class="nav-link text-dark font-italic">
-          <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
-          Developer's Portfolio
+          <i class="fa fa-code mr-2 text-primary fa-fw"></i>
+          <span data-i18n-key="portfolio-link">Developer's Portfolio</span>
         </a>
-      </li> -->
+      </li>
     </ul>
   </div>
   <!-- End vertical navbar -->
@@ -81,27 +81,23 @@
   <!-- language switcher -->
 
   <div class="d-flex justify-content-end m-3">
-    <!-- <span class="mr-2">Translate:</span> -->
     <i class="fa-solid fa-language mr-2"></i>
 
-    <select data-i18n-switcher class="locale-switcher">
+    <select tabindex="1" data-i18n-switcher class="locale-switcher">
       <option value="en">English</option>
       <option value="es">Espanol</option>
     </select>
   </div>
 
   <div class="page-content p-5" id="content">
-    <!-- Toggle button -->
-    <button id="sidebarCollapse" type="button" class="btn btn-primary btn-light rounded-pill shadow-lg px-4 mb-4">
+
+    <!-- Vertical Toggle button -->
+    <button id="vertSidebarCollapse" type="button" class="btn btn-primary btn-light rounded-pill shadow-lg px-4 mb-4">
       <i class="fa fa-bars mr-2"></i>
-      <small data-i18n-key="sidebar-button" class="text-uppercase font-weight-bold" id="sidebarBtn">More Tests</small>
+      <small data-i18n-key="sidebar-button" tabindex="2" class="text-uppercase font-weight-bold"
+        id="sidebarBtnText">More
+        Tests</small>
     </button>
-
-    <!-- Title -->
-
-    <!-- <h2 class="display-4">CompuTester</h2>
-    <p data-i18n-key="subtitle" class="lead mb-0 subtitle">Making device diagnostics simple.</p> -->
-
 
     <!-- popups -->
 
@@ -161,73 +157,79 @@
             </div>
         </div> -->
 
-    <!-- core tests -->
-    <div id="main-tests" class="d-flex justify-content-around">
-      <div class="col-lg-7">
-        <div id="mic-test"><!-- START: Mic Test -->
-          <h2 data-i18n-key="mic-title" id="mic-status">Microphone Test</h2>
-          <button data-i18n-key="mic-button" class="btn btn-light btn-secondary rounded-pill shadow-sm px-4 mb-4" onclick="startMic()" tabindex="2">Start Microphone</button>
+    <!-- main tests -->
+    <div id="mainTests">
 
-          <label data-i18n-key="record-length" for="recordLength">Recording Length (in seconds):</label>
-          <input id="recordLength" type="text" value="5" min="3" max="300" tabindex="3" size="1">
+      <!-- mic and webcam tests -->
+      <div id="micCamTests" class="d-flex justify-content-around">
+        <div class="col-lg-7">
+          <div id="mic-test" class="test"><!-- START: Mic Test -->
+            <h2 data-i18n-key="mic-title" id="mic-status">Microphone Test</h2>
+            <button data-i18n-key="mic-button" class="btn btn-light btn-secondary rounded-pill shadow-sm px-4 mb-4"
+              onclick="startMic()" tabindex="4">Start Microphone</button>
+
+            <label data-i18n-key="record-length" for="recordLength">Recording Length (in seconds):</label>
+            <input id="recordLength" type="text" value="5" min="3" max="300" tabindex="3" size="1">
 
 
-          <div id="visualizer-container"><!-- START: Visualizer Container -->
-            <span id="visualizer-height"></span>
-          </div><!-- END: Visualizer Container -->
-        </div><!-- END: Mic Test -->
+            <div id="visualizer-container" class="testFrame"><!-- START: Visualizer Container -->
+              <span id="visualizer-height"></span>
+            </div><!-- END: Visualizer Container -->
+          </div><!-- END: Mic Test -->
+        </div>
+
+        <div class="col-lg-5 d-flex flex-column">
+          <div id="webcam-test" class="test"><!-- START: Webcam Test -->
+            <h2 data-i18n-key="webcam-title" id="webcam-status">Webcam Test</h2>
+            <button data-i18n-key="webcam-button" class="btn btn-light btn-secondary rounded-pill shadow-sm px-4 mb-4"
+              onclick="startWebcam()" tabindex="5">Start webcam</button>
+
+            <div id="webcamWrapper" class="testFrame"><!-- START: Webcam Wrapper -->
+              <video id="videoPlayer" autoplay></video>
+            </div><!-- END: Webcam Wrapper -->
+          </div><!-- END: Webcam Test -->
+        </div>
       </div>
 
-      <div class="col-lg-5 d-flex flex-column">
-        <div id="webcam-test"><!-- START: Webcam Test -->
-          <h2 data-i18n-key="webcam-title" id="webcam-status">Webcam Test</h2>
-          <button data-i18n-key="webcam-button" class="btn btn-light btn-secondary rounded-pill shadow-sm px-4 mb-4" onclick="startWebcam()" tabindex="2">Start webcam</button>
+      <div class="separator"></div>
 
-          <div id="webcamWrapper"><!-- START: Webcam Wrapper -->
-            <video id="videoPlayer" autoplay></video>
-          </div><!-- END: Webcam Wrapper -->
-        </div><!-- END: Webcam Test -->
+      <div class="row d-flex justify-content-around">
+
+        <!-- START: Audio Tests -->
+        <div class="test">
+          <h3 data-i18n-key="left-channel">Left Channel</h3>
+          <audio preload="auto" id="leftChannel">
+            <source src="https://cdn.jsdelivr.net/gh/lunu-bounir/audio-equalizer/test/left.ogg" type="audio/ogg">
+          </audio>
+          <button data-i18n-key="audio-button" class="btn btn-light btn-secondary rounded-pill shadow-sm" id="leftBtn"
+            onclick="document.getElementById('leftChannel').play()" tabindex="6">Play</button>
+        </div>
+
+        <div class="test">
+          <h3 data-i18n-key="right-channel">Right Channel</h3>
+          <audio preload="auto" id="rightChannel">
+            <source src="https://cdn.jsdelivr.net/gh/lunu-bounir/audio-equalizer/test/right.ogg" type="audio/ogg">
+          </audio>
+          <button data-i18n-key="audio-button" class="btn btn-light btn-secondary rounded-pill shadow-sm" id="rightBtn"
+            onclick="document.getElementById('rightChannel').play()" tabindex="7">Play</button>
+        </div>
+
       </div>
-    </div>
 
-    <div class="separator"></div>
+      <div class="separator"></div>
 
-    <div class="row d-flex justify-content-around">
-      
-      <!-- START: Audio Tests -->
-      <div>
-        <h3 data-i18n-key="left-channel">Left Channel</h3>
-        <audio preload="auto" id="leftChannel">
-          <source src="https://cdn.jsdelivr.net/gh/lunu-bounir/audio-equalizer/test/left.ogg" type="audio/ogg">
-        </audio>
-        <button data-i18n-key="audio-button" class="btn btn-light btn-secondary rounded-pill shadow-sm" id="leftBtn"
-          onclick="document.getElementById('leftChannel').play()" tabindex="4">Play</button>
-      </div>
-
-      <div>
-        <h3 data-i18n-key="right-channel">Right Channel</h3>
-        <audio preload="auto" id="rightChannel">
-          <source src="https://cdn.jsdelivr.net/gh/lunu-bounir/audio-equalizer/test/right.ogg" type="audio/ogg">
-        </audio>
-        <button data-i18n-key="audio-button" class="btn btn-light btn-secondary rounded-pill shadow-sm" id="rightBtn"
-          onclick="document.getElementById('rightChannel').play()" tabindex="5">Play</button>
-      </div>
-      
-    </div>
-
-    <div class="separator"></div>
-
-    <div class="row" id="keyboard-section">
-      <div class="col-lg-12">
-        <div>
-          <div id="keyboard-tests"><!-- START: Keyboard Test -->
-            <h2 data-i18n-key="keyboard-title">Keyboard Test</h2>
-            <p data-i18n-key="check-reminder">Don't forget to check your other top row keys and the headphone jack.</p>
-            <div id="keyboard"><!-- START: Keyboard -->
-              <div class="keyboard-main-area"><!-- START: Keyboard Main Area -->
-                <div class="d-flex justify-content-left"><!-- START: First Row -->
-                  <span class="key" id="Escape">Esc</span> &nbsp;
-                  <!-- <span class="key key-empty"></span>
+      <div class="row" id="keyboard-section">
+        <div class="col-lg-12">
+          <div>
+            <div id="keyboard-tests"><!-- START: Keyboard Test -->
+              <h2 data-i18n-key="keyboard-title">Keyboard Test</h2>
+              <p data-i18n-key="check-reminder">Don't forget to check your other top row keys and the headphone jack.
+              </p>
+              <div id="keyboard"><!-- START: Keyboard -->
+                <div class="keyboard-main-area"><!-- START: Keyboard Main Area -->
+                  <div class="d-flex justify-content-left"><!-- START: First Row -->
+                    <span class="key" id="Escape">Esc</span> &nbsp;
+                    <!-- <span class="key key-empty"></span>
                   <span class="key" id="F1">F1</span>
                   <span class="key" id="F2">F2</span>
                   <span class="key" id="F3">F3</span>
@@ -240,102 +242,101 @@
                   <span class="key" id="F10">F10</span>
                   <span class="key" id="F11">F11</span>
                   <span class="key" id="F12">F12</span> -->
-                </div><!-- END: First Row -->
+                  </div><!-- END: First Row -->
 
-                <div class="d-flex justify-content-center"><!-- START: Second Row -->
-                  <span class="key" id="Backquote">`</span>
-                  <span class="key" id="Digit1">1</span>
-                  <span class="key" id="Digit2">2</span>
-                  <span class="key" id="Digit3">3</span>
-                  <span class="key" id="Digit4">4</span>
-                  <span class="key" id="Digit5">5</span>
-                  <span class="key" id="Digit6">6</span>
-                  <span class="key" id="Digit7">7</span>
-                  <span class="key" id="Digit8">8</span>
-                  <span class="key" id="Digit9">9</span>
-                  <span class="key" id="Digit0">0</span>
-                  <span class="key" id="Minus">-</span>
-                  <span class="key" id="Equal">=</span>
-                  <span class="key" id="Backspace">Backspace</span>
-                </div><!-- END: Second Row -->
+                  <div class="d-flex justify-content-center"><!-- START: Second Row -->
+                    <span class="key" id="Backquote">`</span>
+                    <span class="key" id="Digit1">1</span>
+                    <span class="key" id="Digit2">2</span>
+                    <span class="key" id="Digit3">3</span>
+                    <span class="key" id="Digit4">4</span>
+                    <span class="key" id="Digit5">5</span>
+                    <span class="key" id="Digit6">6</span>
+                    <span class="key" id="Digit7">7</span>
+                    <span class="key" id="Digit8">8</span>
+                    <span class="key" id="Digit9">9</span>
+                    <span class="key" id="Digit0">0</span>
+                    <span class="key" id="Minus">-</span>
+                    <span class="key" id="Equal">=</span>
+                    <span class="key" id="Backspace">Backspace</span>
+                  </div><!-- END: Second Row -->
 
-                <div class="d-flex justify-content-center"><!-- START: Third Row -->
-                  <span class="key" id="Tab">Tab</span>
-                  <span class="key" id="KeyQ">Q</span>
-                  <span class="key" id="KeyW">W</span>
-                  <span class="key" id="KeyE">E</span>
-                  <span class="key" id="KeyR">R</span>
-                  <span class="key" id="KeyT">T</span>
-                  <span class="key" id="KeyY">Y</span>
-                  <span class="key" id="KeyU">U</span>
-                  <span class="key" id="KeyI">I</span>
-                  <span class="key" id="KeyO">O</span>
-                  <span class="key" id="KeyP">P</span>
-                  <span class="key" id="BracketLeft">[</span>
-                  <span class="key" id="BracketRight">]</span>
-                  <span class="key" id="Backslash">\</span>
-                </div><!-- END: Third Row -->
+                  <div class="d-flex justify-content-center"><!-- START: Third Row -->
+                    <span class="key" id="Tab">Tab</span>
+                    <span class="key" id="KeyQ">Q</span>
+                    <span class="key" id="KeyW">W</span>
+                    <span class="key" id="KeyE">E</span>
+                    <span class="key" id="KeyR">R</span>
+                    <span class="key" id="KeyT">T</span>
+                    <span class="key" id="KeyY">Y</span>
+                    <span class="key" id="KeyU">U</span>
+                    <span class="key" id="KeyI">I</span>
+                    <span class="key" id="KeyO">O</span>
+                    <span class="key" id="KeyP">P</span>
+                    <span class="key" id="BracketLeft">[</span>
+                    <span class="key" id="BracketRight">]</span>
+                    <span class="key" id="Backslash">\</span>
+                  </div><!-- END: Third Row -->
 
-                <div class="d-flex justify-content-center"><!-- START: Fourth Row -->
-                  <!-- <span class="key" id="CapsLock"></span> -->
-                  <span class="key" id="MetaLeft">&#128269;</span>
-                  <span class="key" id="KeyA">A</span>
-                  <span class="key" id="KeyS">S</span>
-                  <span class="key" id="KeyD">D</span>
-                  <span class="key" id="KeyF">F</span>
-                  <span class="key" id="KeyG">G</span>
-                  <span class="key" id="KeyH">H</span>
-                  <span class="key" id="KeyJ">J</span>
-                  <span class="key" id="KeyK">K</span>
-                  <span class="key" id="KeyL">L</span>
-                  <span class="key" id="Semicolon">;</span>
-                  <span class="key" id="Quote">'</span>
-                  <span class="key" id="Enter">Enter</span>
-                </div><!-- END: Fourth Row -->
+                  <div class="d-flex justify-content-center"><!-- START: Fourth Row -->
+                    <!-- <span class="key" id="CapsLock"></span> -->
+                    <span class="key" id="MetaLeft">&#128269;</span>
+                    <span class="key" id="KeyA">A</span>
+                    <span class="key" id="KeyS">S</span>
+                    <span class="key" id="KeyD">D</span>
+                    <span class="key" id="KeyF">F</span>
+                    <span class="key" id="KeyG">G</span>
+                    <span class="key" id="KeyH">H</span>
+                    <span class="key" id="KeyJ">J</span>
+                    <span class="key" id="KeyK">K</span>
+                    <span class="key" id="KeyL">L</span>
+                    <span class="key" id="Semicolon">;</span>
+                    <span class="key" id="Quote">'</span>
+                    <span class="key" id="Enter">Enter</span>
+                  </div><!-- END: Fourth Row -->
 
 
-                <div class="d-flex justify-content-center"><!-- START: Fifth Row -->
-                  <span class="key" id="ShiftLeft">Shift</span>
-                  <span class="key" id="KeyZ">Z</span>
-                  <span class="key" id="KeyX">X</span>
-                  <span class="key" id="KeyC">C</span>
-                  <span class="key" id="KeyV">V</span>
-                  <span class="key" id="KeyB">B</span>
-                  <span class="key" id="KeyN">N</span>
-                  <span class="key" id="KeyM">M</span>
-                  <span class="key" id="Comma">,</span>
-                  <span class="key" id="Period">.</span>
-                  <span class="key" id="Slash">/</span>
-                  <span class="key" id="ShiftRight">Shift</span>
-                  <span class="key" id="ArrowUp">&#8593</span> <!-- Up Arrow -->
-                </div><!-- END: Fifth Row -->
+                  <div class="d-flex justify-content-center"><!-- START: Fifth Row -->
+                    <span class="key" id="ShiftLeft">Shift</span>
+                    <span class="key" id="KeyZ">Z</span>
+                    <span class="key" id="KeyX">X</span>
+                    <span class="key" id="KeyC">C</span>
+                    <span class="key" id="KeyV">V</span>
+                    <span class="key" id="KeyB">B</span>
+                    <span class="key" id="KeyN">N</span>
+                    <span class="key" id="KeyM">M</span>
+                    <span class="key" id="Comma">,</span>
+                    <span class="key" id="Period">.</span>
+                    <span class="key" id="Slash">/</span>
+                    <span class="key" id="ShiftRight">Shift</span>
+                    <span class="key" id="ArrowUp">&#8593</span> <!-- Up Arrow -->
+                  </div><!-- END: Fifth Row -->
 
-                <div class="d-flex justify-content-center"><!-- START: Sixth Row -->
-                  <span class="key" id="ControlLeft">Ctrl</span>
-                  <!-- <span class="key" id="MetaLeft">&#128269;</span> -->
-                  <span class="key" id="AltLeft">Alt</span>
-                  <span class="key" id="Space">Space Bar</span>
-                  <span class="key" id="AltRight">Alt</span>
-                  <!-- <span class="key" id="MetaRight">âŠž</span> -->
-                  <!-- <span class="key" id="ContextMenu">â–¤</span> -->
-                  <span class="key" id="ControlRight">Ctrl</span>
-                  <span class="key" id="ArrowLeft">&#8592</span> <!-- Left Arrow -->
-                  <span class="key" id="ArrowDown">&#8595</span> <!-- Down Arrow -->
-                  <span class="key" id="ArrowRight">&#8594</span> <!-- Right Arrow -->
-                </div><!-- END: Sixth Row -->
-              </div><!-- END: Keyboard Main Area-->
+                  <div class="d-flex justify-content-center"><!-- START: Sixth Row -->
+                    <span class="key" id="ControlLeft">Ctrl</span>
+                    <!-- <span class="key" id="MetaLeft">&#128269;</span> -->
+                    <span class="key" id="AltLeft">Alt</span>
+                    <span class="key" id="Space">Space Bar</span>
+                    <span class="key" id="AltRight">Alt</span>
+                    <!-- <span class="key" id="MetaRight">âŠž</span> -->
+                    <!-- <span class="key" id="ContextMenu">â–¤</span> -->
+                    <span class="key" id="ControlRight">Ctrl</span>
+                    <span class="key" id="ArrowLeft">&#8592</span> <!-- Left Arrow -->
+                    <span class="key" id="ArrowDown">&#8595</span> <!-- Down Arrow -->
+                    <span class="key" id="ArrowRight">&#8594</span> <!-- Right Arrow -->
+                  </div><!-- END: Sixth Row -->
+                </div><!-- END: Keyboard Main Area-->
 
-            </div> <!-- END: Keyboard -->
+              </div> <!-- END: Keyboard -->
 
-            <textarea id="keyboard-test" tabindex="6" onfocus="highlightOnlyOnFocus();"
-              oncontextmenu="event.preventDefault();" rows="2" cols="60"></textarea>
-          </div><!-- END: Keyboard Test -->
+              <textarea id="keyboard-test" tabindex="8" onfocus="highlightOnlyOnFocus();"
+                oncontextmenu="event.preventDefault();" rows="2" cols="60"></textarea>
+            </div><!-- END: Keyboard Test -->
+          </div>
         </div>
       </div>
+
     </div>
-
-  </div>
-
   </div>
 
   <!-- SCRIPTS -->
