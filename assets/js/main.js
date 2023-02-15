@@ -255,10 +255,17 @@ $(function() {
   });
 });
 
+$(function() {
+  // Sidebar toggle behavior
+  $('#peripheral').on('click', function() {
+    $('#vertical-sidebar, #content').toggleClass('active');
+  });
+});
+
 ///////////////////////////////////////////////////////////////////// These functions still need cleaned up
 
 function audioVisualizer() {
-  const numberOfBars = 50;
+  const numberOfBars = 35;
   navigator.mediaDevices.getUserMedia({ audio: true })
     .then(function (stream) {
       const ctx = new AudioContext();

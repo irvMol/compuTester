@@ -240,7 +240,7 @@ li {
 
 #vertical-sidebar.active {
 	margin-left: -17rem;
-	
+
 }
 
 #content.active {
@@ -248,13 +248,40 @@ li {
 	margin: 0;
 }
 
- .test {
+.test {
 	margin: 10px;
-  }
+}
+
+@media (max-width: 1024px) {
+
+	#micCamTests {
+		flex-direction: column;
+	}
+}
 
 @media (max-width: 768px) {
+
+	.vertical-nav {
+		min-width: 17rem;
+		width: 100%;
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: 0;
+		box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+		transition: all 0.4s;
+	}
+
+
+	.page-content {
+		width: -100%;
+		margin-left: 17rem;
+		transition: all 0.4s;
+	}
+
+
 	#vertical-sidebar {
-		margin-left: -17rem;
+		margin-left: -100%;
 	}
 
 	#vertical-sidebar.active {
@@ -267,8 +294,8 @@ li {
 	}
 
 	#content.active {
-		margin-left: 17rem;
-		width: calc(100% - 17rem);
+		margin-left: 80rem;
+		width: calc(100% - 80rem);
 	}
 
 	// test
@@ -276,11 +303,8 @@ li {
 		display: none;
 	}
 
-	#micCamTests{
-		flex-direction: column;
-	}
-
-	#visualizer-container, #videoPlayer{
+	#visualizer-container,
+	#videoPlayer {
 		max-width: 50%;
 		max-height: 50%;
 	}
