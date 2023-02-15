@@ -65,12 +65,12 @@
           <span>Github</span>
         </a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a href="https://irvmol.com" class="nav-link text-dark font-italic">
           <i class="fa fa-code mr-2 text-primary fa-fw"></i>
           <span data-i18n-key="portfolio-link">Developer's Portfolio</span>
         </a>
-      </li>
+      </li> -->
     </ul>
   </div>
   <!-- End vertical navbar -->
@@ -163,7 +163,7 @@
       <!-- mic and webcam tests -->
       <div id="micCamTests" class="d-flex justify-content-around">
         <div class="col-lg-7">
-          <div id="mic-test" class="test"><!-- START: Mic Test -->
+          <div id="mic-test" class="test flex-column"><!-- START: Mic Test -->
             <h2 data-i18n-key="mic-title" id="mic-status">Microphone Test</h2>
             <button data-i18n-key="mic-button" class="btn btn-light btn-secondary rounded-pill shadow-sm px-4 mb-4"
               onclick="startMic()" tabindex="4">Start Microphone</button>
@@ -179,7 +179,7 @@
         </div>
 
         <div class="col-lg-5 d-flex flex-column">
-          <div id="webcam-test" class="test"><!-- START: Webcam Test -->
+          <div id="webcam-test" class="test flex-column"><!-- START: Webcam Test -->
             <h2 data-i18n-key="webcam-title" id="webcam-status">Webcam Test</h2>
             <button data-i18n-key="webcam-button" class="btn btn-light btn-secondary rounded-pill shadow-sm px-4 mb-4"
               onclick="startWebcam()" tabindex="5">Start webcam</button>
@@ -229,19 +229,7 @@
                 <div class="keyboard-main-area"><!-- START: Keyboard Main Area -->
                   <div class="d-flex justify-content-left"><!-- START: First Row -->
                     <span class="key" id="Escape">Esc</span> &nbsp;
-                    <!-- <span class="key key-empty"></span>
-                  <span class="key" id="F1">F1</span>
-                  <span class="key" id="F2">F2</span>
-                  <span class="key" id="F3">F3</span>
-                  <span class="key" id="F4">F4</span>
-                  <span class="key" id="F5">F5</span>
-                  <span class="key" id="F6">F6</span>
-                  <span class="key" id="F7">F7</span>
-                  <span class="key" id="F8">F8</span>
-                  <span class="key" id="F9">F9</span>
-                  <span class="key" id="F10">F10</span>
-                  <span class="key" id="F11">F11</span>
-                  <span class="key" id="F12">F12</span> -->
+
                   </div><!-- END: First Row -->
 
                   <div class="d-flex justify-content-center"><!-- START: Second Row -->
@@ -314,12 +302,9 @@
 
                   <div class="d-flex justify-content-center"><!-- START: Sixth Row -->
                     <span class="key" id="ControlLeft">Ctrl</span>
-                    <!-- <span class="key" id="MetaLeft">&#128269;</span> -->
                     <span class="key" id="AltLeft">Alt</span>
                     <span class="key" id="Space">Space Bar</span>
                     <span class="key" id="AltRight">Alt</span>
-                    <!-- <span class="key" id="MetaRight">âŠž</span> -->
-                    <!-- <span class="key" id="ContextMenu">â–¤</span> -->
                     <span class="key" id="ControlRight">Ctrl</span>
                     <span class="key" id="ArrowLeft">&#8592</span> <!-- Left Arrow -->
                     <span class="key" id="ArrowDown">&#8595</span> <!-- Down Arrow -->
@@ -348,16 +333,16 @@
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
 
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script> -->
+    crossorigin="anonymous"></script>
 
   <script src="assets/js/lib/i18next.min.js"></script>
   <script src="assets/js/lib/jquery-i18next.min.js"></script>
   <script src="assets/js/lib/i18nextHttpBackend.min.js"></script>
 
   <script src="assets/js/localization.js"></script>
-  <script src="assets/js/UAParser.js"></script>
+  <script src="assets/js/lib/UAParser.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 

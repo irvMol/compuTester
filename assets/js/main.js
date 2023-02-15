@@ -313,7 +313,7 @@ function audioVisualizer() {
 function highlightOnlyOnFocus() {
   var keyPressed = "";
   var keyReleased = "";
-  document.addEventListener("keydown", () => {
+  document.addEventListener("keydown", (event) => {
     if (event.code != "") {
       keyPressed = event.code;
     } else {
@@ -329,7 +329,7 @@ function highlightOnlyOnFocus() {
     document.getElementById(keyPressed).style.backgroundColor = "#cccccc";
   });
 
-  document.addEventListener("keyup", () => {
+  document.addEventListener("keyup", (event) => {
     if (event.code != "") {
       keyReleased = event.code;
     } else {
