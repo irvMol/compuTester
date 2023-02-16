@@ -6,7 +6,6 @@
 *
 */
 /* Audio Visualizer */
-/* Adding so you don't have to scroll */
 /* POP UP HERO SECTION */
 /* The popup */
 /* Modal Content/Box */
@@ -29,10 +28,10 @@
 }
 
 body {
-  background-image: linear-gradient(rgba(35, 219, 252, 0.5), rgba(81, 143, 158, 0.5), rgba(95, 204, 255, 0.5), rgba(10, 75, 43, 0.5));
+  background-image: linear-gradient(rgba(142, 234, 250, 0.452), rgba(108, 147, 156, 0.5), rgba(191, 230, 248, 0.5), rgba(10, 75, 43, 0.5));
   text-align: center;
   background: #599fd9;
-  background: linear-gradient(to right, #599fd9, #c2e59c);
+  background: linear-gradient(to right, #98cdf8, #d3f3b4);
   min-height: 100vh;
   overflow-x: hidden;
   color: rgb(23, 26, 29);
@@ -115,6 +114,7 @@ li {
   width: 6em;
 }
 
+/* Audio Visualizer */
 #videoPlayer {
   border: 1px solid black;
   width: 321px;
@@ -149,12 +149,6 @@ li {
   max-width: 150px;
   max-height: 150px;
   margin: 15px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .btn {
@@ -214,6 +208,15 @@ li {
   transition: all 0.4s;
 }
 
+.nav-item {
+  font-style: italic;
+}
+.nav-item:active {
+  color: rgb(0, 89, 253);
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .page-content {
   width: calc(100% - 17rem);
   margin-left: 17rem;
@@ -233,6 +236,11 @@ li {
   margin: 10px;
 }
 
+.testFunc {
+  margin: 10px;
+  color: rgb(0, 89, 253);
+}
+
 @media (max-width: 1024px) {
   #micCamTests {
     flex-direction: column;
@@ -240,33 +248,33 @@ li {
 }
 @media (max-width: 768px) {
   .vertical-nav {
-    min-width: 17rem;
-    width: 100%;
+    min-width: 100vw;
+    width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.4s;
+    z-index: 1;
   }
   .page-content {
     width: -100%;
-    margin-left: 17rem;
     transition: all 0.4s;
   }
   #vertical-sidebar {
-    margin-left: -100%;
+    margin-left: -100vw;
   }
   #vertical-sidebar.active {
     margin-left: 0;
   }
   #content {
-    width: 100%;
+    width: 100vw;
     margin: 0;
   }
   #content.active {
-    margin-left: 80rem;
-    width: calc(100% - 80rem);
+    margin-left: 17rem;
+    width: calc(100% - 17rem);
   }
   #keyboard-section {
     display: none;

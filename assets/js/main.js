@@ -252,6 +252,14 @@ $(function() {
   // Sidebar toggle behavior
   $('#vertSidebarCollapse').on('click', function() {
     $('#vertical-sidebar, #content').toggleClass('active');
+
+    if ($("#vertical-sidebar").hasClass("active")) {
+      $("#sidebarBtnText").html("More Tests");
+      console.log('test');
+    }
+    else{
+      $("#sidebarBtnText").html("Less Tests");
+    }
   });
 });
 
@@ -261,6 +269,7 @@ $(function() {
     $('#vertical-sidebar, #content').toggleClass('active');
   });
 });
+
 
 ///////////////////////////////////////////////////////////////////// These functions still need cleaned up
 
