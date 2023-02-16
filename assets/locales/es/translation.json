@@ -4,7 +4,9 @@
 
     "tests-heading": "Pruebas",
 
-    "sidebar-button": "Más Pruebas",
+    "sidebar-button-less": "Menos Pruebas",
+
+    "sidebar-button-more": "Más Pruebas",
 
     "main-test-link": "Accesorios",
 

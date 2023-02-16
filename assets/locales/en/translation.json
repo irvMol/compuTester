@@ -4,7 +4,9 @@
 
     "tests-heading": "Tests",
 
-    "sidebar-button": "More Tests",
+    "sidebar-button-less": "Less Tests",
+
+    "sidebar-button-more": "More Tests",
 
     "main-test-link": "Peripherals",
 
