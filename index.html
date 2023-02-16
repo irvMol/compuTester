@@ -14,7 +14,7 @@
 <body>
 
   <!-- Vertical navbar -->
-  <div class="vertical-nav bg-white" id="vertical-sidebar">
+  <div class="vertical-nav bg-white active" id="vertical-sidebar">
     <div class="py-4 px-3 mb-4 bg-light">
       <div class="media d-flex align-items-center">
         <img src="assets/images/logo.png" alt="logo" width="65" class="mr-3 shadow-sm">
@@ -30,25 +30,25 @@
 
     <ul class="nav flex-column bg-white mb-0">
       <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic bg-light" id="peripheral">
+        <a href="#" class="nav-link text-dark " id="peripheral">
           <i class="fa-solid fa-computer mr-3 text-primary fa-fw"></i>
           <span data-i18n-key="main-test-link">Peripherals</span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic" id="geo">
+        <a href="#" class="nav-link text-dark" id="geo">
           <i class="fa-solid fa-earth-americas mr-3 text-primary fa-fw"></i>
           <span data-i18n-key="geo-link">Geolocation</span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic" id="network">
+        <a href="#" class="nav-link text-dark" id="network">
           <i class="fa-solid fa-wifi mr-3 text-primary fa-fw"></i>
           <span data-i18n-key="network-link">Network Tests</span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic" id="UAgent">
+        <a href="#" class="nav-link text-dark" id="UAgent">
           <i class="fa-solid fa-address-card mr-3 text-primary fa-fw"></i>
           <span data-i18n-key="ua-link">User Agent</span>
         </a>
@@ -89,13 +89,13 @@
     </select>
   </div>
 
-  <div class="page-content p-5" id="content">
+  <div class="page-content p-5 active" id="content">
 
     <!-- Vertical Toggle button -->
     <button id="vertSidebarCollapse" type="button" class="btn btn-primary btn-light rounded-pill shadow-lg px-4 mb-4">
       <i class="fa fa-bars mr-2"></i>
       <small data-i18n-key="sidebar-button" tabindex="2" class="text-uppercase font-weight-bold"
-        id="sidebarBtnText">More
+        id="sidebarBtnText">Less
         Tests</small>
     </button>
 
