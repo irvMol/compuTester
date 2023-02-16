@@ -162,14 +162,15 @@
       <!-- mic and webcam tests -->
       <div id="micCamTests" class="d-flex justify-content-around">
         <div class="col-lg-7">
-          <div id="mic-test" class="test flex-column"><!-- START: Mic Test -->
+          <div id="mic-test" class="test"><!-- START: Mic Test -->
             <h2 data-i18n-key="mic-title" id="mic-status">Microphone Test</h2>
             <button data-i18n-key="mic-button" class="btn btn-light btn-secondary rounded-pill shadow-sm px-4 mb-4"
               onclick="startMic()" tabindex="4">Start Microphone</button>
 
-            <label data-i18n-key="record-length" for="recordLength">Recording Length (in seconds):</label>
-            <input id="recordLength" type="text" value="5" min="3" max="300" tabindex="3" size="1">
-
+            <section>
+              <label data-i18n-key="record-length" for="recordLength">Recording Length (in seconds):</label>
+              <input id="recordLength" type="text" value="5" min="3" max="300" tabindex="3" size="1">
+            </section>
 
             <div id="visualizer-container" class="testFrame"><!-- START: Visualizer Container -->
               <span id="visualizer-height"></span>
@@ -178,7 +179,7 @@
         </div>
 
         <div class="col-lg-5 d-flex flex-column">
-          <div id="webcam-test" class="test flex-column"><!-- START: Webcam Test -->
+          <div id="webcam-test" class="test"><!-- START: Webcam Test -->
             <h2 data-i18n-key="webcam-title" id="webcam-status">Webcam Test</h2>
             <button data-i18n-key="webcam-button" class="btn btn-light btn-secondary rounded-pill shadow-sm px-4 mb-4"
               onclick="startWebcam()" tabindex="5">Start webcam</button>
