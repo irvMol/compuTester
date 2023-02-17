@@ -226,6 +226,7 @@ li {
 	left: 0;
 	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 	transition: all 0.4s;
+	z-index: 1;
 }
 
 .nav-item{
@@ -255,12 +256,12 @@ li {
 	margin: 0;
 }
 
+.dim{
+	filter: opacity(25%);
+}
+
 .test {
 	margin: 10px;
-}
-.testFunc {
-	margin: 10px;
-	color: $color_3;
 }
 
 @media (max-width: 1024px) {

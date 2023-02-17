@@ -77,9 +77,56 @@
 
 
   <!-- Page content holder -->
+      <!-- popups -->
+
+
+      <div class="row">
+        <div class="col-lg-12">
+          <!-- Geolocation Popup-->
+          <div id="geoView" class="popup">
+            <!-- window content -->
+            <div class="popup-content">
+              <i id="closeGeoBtn" class="popBtn fa-regular fa-circle-xmark"></i>
+              <h2 data-i18n-key="geo-title">Geolocation Info:</h2>
+              <p id="geoInfo"> </p>
+            </div>
+  
+          </div>
+  
+          <!-- Network Popup-->
+          <div id="networkView" class="popup">
+            <!-- window content -->
+            <div class="popup-content">
+              <i id="closeNetworkBtn" class=" popBtn fa-regular fa-circle-xmark"></i>
+              <h2 data-i18n-key="network-title">Network Info:</h2>
+              <h4 id="networkInfo"> </h4>
+              <small data-i18n-key="network-disclaimer">* This test is to be used as an estimate of network speed only.
+                For a more accurate test the compuTester team likes: </small>
+              <a href="https://librespeed.org/">librespeed.</a>
+            </div>
+  
+          </div>
+  
+          <!-- User Agent Popup-->
+          <div id="UAView" class="popup">
+            <!-- window content -->
+            <div class="popup-content">
+              <i id="closeUABtn" class="popBtn fa-regular fa-circle-xmark"></i>
+              <h2 data-i18n-key="ua-title">User Agent Info:</h2>
+              <ul>
+                <li id="os"></li>
+                <li id="cpu"></li>
+                <li id="browser"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- end popups -->
 
   <!-- language switcher -->
-
+<div id="main-content">
   <div class="d-flex justify-content-end m-3">
     <i class="fa-solid fa-language mr-2"></i>
 
@@ -98,53 +145,7 @@
         id="sidebarBtnText"></small>
     </button>
 
-    <!-- popups -->
 
-
-    <div class="row">
-      <div class="col-lg-12">
-        <!-- Geolocation Popup-->
-        <div id="geoView" class="popup">
-          <!-- window content -->
-          <div class="popup-content">
-            <i id="closeGeoBtn" class="popBtn fa-regular fa-circle-xmark"></i>
-            <h2 data-i18n-key="geo-title">Geolocation Info:</h2>
-            <p id="geoInfo"> </p>
-          </div>
-
-        </div>
-
-        <!-- Network Popup-->
-        <div id="networkView" class="popup">
-          <!-- window content -->
-          <div class="popup-content">
-            <i id="closeNetworkBtn" class=" popBtn fa-regular fa-circle-xmark"></i>
-            <h2 data-i18n-key="network-title">Network Info:</h2>
-            <h4 id="networkInfo"> </h4>
-            <small data-i18n-key="network-disclaimer">* This test is to be used as an estimate of network speed only.
-              For a more accurate test the compuTester team likes: </small>
-            <a href="https://librespeed.org/">librespeed.</a>
-          </div>
-
-        </div>
-
-        <!-- User Agent Popup-->
-        <div id="UAView" class="popup">
-          <!-- window content -->
-          <div class="popup-content">
-            <i id="closeUABtn" class="popBtn fa-regular fa-circle-xmark"></i>
-            <h2 data-i18n-key="ua-title">User Agent Info:</h2>
-            <ul>
-              <li id="os"></li>
-              <li id="cpu"></li>
-              <li id="browser"></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- end popups -->
     <div class="separator"></div>
 
     <!-- <div class="row">
@@ -320,10 +321,9 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
-
+</div>
   <!-- SCRIPTS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

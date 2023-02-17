@@ -255,10 +255,12 @@ $(function() {
 
     if ($("#vertical-sidebar").hasClass("active")) {
       $("#sidebarBtnText").html("More Tests");
-      console.log('test');
+      $('#main-content').removeClass('dim');
     }
+    
     else{
       $("#sidebarBtnText").html("Less Tests");
+      $('#main-content').addClass('dim');
     }
   });
 });
