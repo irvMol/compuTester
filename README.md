@@ -65,4 +65,4 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 ## [Irving Molina](https://github.com/irvMol)
 ### [License](https://github.com/irvMol/compuTester/blob/main/LICENSE.md?plain=1)
 
-MIT © [Irving Molina ]https://github.com/irvMol)
+MIT © [Irving Molina ](https://github.com/irvMol/compuTester/blob/main/LICENSE.md)
