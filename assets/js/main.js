@@ -269,6 +269,16 @@ $(function() {
   // Sidebar toggle behavior
   $('#peripheral').on('click', function() {
     $('#vertical-sidebar, #content').toggleClass('active');
+
+    if ($("#vertical-sidebar").hasClass("active")) {
+      $("#sidebarBtnText").html("More Tests");
+      $('#main-content').removeClass('dim');
+    }
+    
+    else{
+      $("#sidebarBtnText").html("Less Tests");
+      $('#main-content').addClass('dim');
+    }
   });
 });
 
