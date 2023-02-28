@@ -3,14 +3,14 @@
 <table>
 <tr>
 <td>
-  CompuTester aids in the testing and diagnosing of personal devices. This multilingual webapp can help the user determine if periferals such as webcam and speakers are working properly. CompuTester also provides useful information regarding network and IP information, user agent information, as well as browser version. This data is particularly useful when diagnosing connectivity problems or browser incompatibilities.
+  CompuTester is a versatile web application that enables users to quickly test and diagnose issues with their personal devices. With its multilingual interface, users can determine if peripherals such as webcams and speakers are working properly, as well as obtain useful information about their network, IP address, user agent, and browser version. This data can be especially valuable in diagnosing connectivity issues or identifying browser incompatibilities. Whether you're a repair technician, a power user, or simply looking to troubleshoot an issue with your device, CompuTester can provide valuable insights and help you get back up and running quickly.
 </td>
 </tr>
 </table>
 
 ## Site
 
-The site can be found at [CompuTester](https://computester.com)
+The site can be found at [https://computester.com](https://computester.com).
 
 ### Landing Page
 The four core CompuTester tests can be seen below on the "peripherals" page. Webcam, microphone, speaker and keyboard tests are provided to help with fast diagnostic of laptops. This tool was originally designed for repairing and refurbishing chromebooks at a fast rate, where these hardware tests are vital.
