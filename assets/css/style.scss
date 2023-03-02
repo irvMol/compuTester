@@ -273,6 +273,11 @@ li {
 
 @media (max-width: 768px) {
 
+	//temporary fix to bug on mobile, dimming is not necessary for that layout.
+	.dim{
+		filter: opacity(1);
+	}
+
 	.vertical-nav {
 		min-width: 100vw;
 		width: 100vw;
