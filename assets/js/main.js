@@ -249,25 +249,8 @@ async function showUA() {
 // toggle sidebar
 
 $(function() {
-  // Sidebar toggle behavior
-  $('#vertSidebarCollapse').on('click', function() {
-    $('#vertical-sidebar, #content').toggleClass('active');
-
-    if ($("#vertical-sidebar").hasClass("active")) {
-      $("#sidebarBtnText").html("More Tests");
-      $('#main-content').removeClass('dim');
-    }
-    
-    else{
-      $("#sidebarBtnText").html("Less Tests");
-      $('#main-content').addClass('dim');
-    }
-  });
-});
-
-$(function() {
-  // Sidebar toggle behavior
-  $('#peripheral').on('click', function() {
+  // Sidebar toggle behavior through main toggle and peripheral button
+  $('#vertSidebarCollapse, #peripheral').on('click', function() {
     $('#vertical-sidebar, #content').toggleClass('active');
 
     if ($("#vertical-sidebar").hasClass("active")) {
