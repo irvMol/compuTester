@@ -275,7 +275,7 @@ li {
   #content.active {
     width: 100vw;
   }
-  #keyboard-section {
+  #keyboard-section, #network {
     display: none;
   }
   #visualizer-container,
