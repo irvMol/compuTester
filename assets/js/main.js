@@ -369,18 +369,18 @@ function focusOnKeyboardTest() {
   document.getElementById('keyboard-test').focus({ focusVisible: true });
 }
 
-//Dead Pixel Test
+// //Dead Pixel Test
 
-const colors = ['red', 'green', 'blue', 'white', 'black'];
-let currentColorIndex = 0;
+// const colors = ['red', 'green', 'blue', 'white', 'black'];
+// let currentColorIndex = 0;
 
-const canvas = document.getElementById('canvas');
-const context = canvas.getContext('2d');
+// const canvas = document.getElementById('canvas');
+// const context = canvas.getContext('2d');
 
-function fillScreen(color) {
-  context.fillStyle = color;
-  context.fillRect(0, 0, canvas.width, canvas.height);
-}
+// function fillScreen(color) {
+//   context.fillStyle = color;
+//   context.fillRect(0, 0, canvas.width, canvas.height);
+// }
 
 // function startPixelTest() {
 //   // Set canvas and controls to full-screen and show them
