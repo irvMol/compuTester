@@ -1,0 +1,35 @@
+/*
+* ==========================================
+* IMPORTS
+* ==========================================
+*/
+
+@import 'variables';
+
+/*
+* ==========================================
+* DARK MODE STYLES
+* ==========================================
+*/
+
+body.dark-mode {
+  background: linear-gradient(
+    to right,
+    $dark-color-3,
+    $dark-background-color-2
+  );
+  color: $dark-color-2;
+}
+
+button.dark-mode {
+  &:hover,
+  &:focus {
+    background-color: $dark-background-color-1;
+  }
+}
+
+p.dark-mode {
+  color: $dark-color-1;
+}
+
+// Add other specific dark mode styles as needed

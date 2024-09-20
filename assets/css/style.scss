@@ -1,328 +1,330 @@
 /*
-*
 * ==========================================
-* SCSS VARIABLES
+* IMPORTS
 * ==========================================
-*
 */
 
-$color_1: black;
-$color_2: rgb(23, 26, 29);
-$color_3: rgb(0, 89, 253);
-$color_4: rgb(70, 69, 69);
-$font-family_1: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-$font-family_2: 'Courier New', Courier, monospace;
-$background-color_1: lightgray;
-$background-color_2: lightgreen;
-$background-color_3: rgba(0, 0, 0, 0.4);
+@import 'dark-mode';
+@import 'variables';
+@import 'mixins';
 
-/* Audio Visualizer */
-
-/* POP UP HERO SECTION */
-/* The popup */
-/* Modal Content/Box */
-/* The Close Button */
-/* demo */
-/*
-*
-* ==========================================
-* CUSTOM UTIL CLASSES
-* ==========================================
-*
-*/
-/* for toggle behavior */
-/*
-*
-*
-*/
 * {
-	font-family: $font-family_1;
+  font-family: $font-family-1;
 }
 
 body {
-	background-image: linear-gradient(rgba(142, 234, 250, 0.452), rgba(108, 147, 156, 0.5), rgba(191, 230, 248, 0.5), rgba(10, 75, 43, 0.5));
-	text-align: center;
-	background: #599fd9;
-	background: -webkit-linear-gradient(to right, #599fd9, #c2e59c);
-	background: linear-gradient(to right, #98cdf8, #d3f3b4);
-	min-height: 100vh;
-	overflow-x: hidden;
-	color: $color_2;
+  background: linear-gradient(
+      rgba(142, 234, 250, 0.452),
+      rgba(108, 147, 156, 0.5),
+      rgba(191, 230, 248, 0.5),
+      rgba(10, 75, 43, 0.5)
+    ),
+    linear-gradient(to right, #98cdf8, #d3f3b4);
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: $light-color-2;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 button {
-	padding: 0.5em;
-	border-radius: 15px;
+  padding: 0.5em;
+  border-radius: 15px;
 
-	&:hover {
-		background-color: $background-color_1;
-		cursor: pointer;
-	}
-
-	&:focus {
-		background-color: $background-color_1;
-	}
+  &:hover,
+  &:focus {
+    background-color: $light-background-color_2;
+    cursor: pointer;
+  }
 }
 
 p {
-	line-height: 2em;
-	text-align: center;
-	margin: auto;
+  line-height: 2em;
+  text-align: center;
+  margin: auto;
 }
 
 li {
-	list-style: none;
+  list-style: none;
 }
 
-/* Classes */
+/*
+* ==========================================
+* PIXEL TEST STYLES
+* ==========================================
+*/
+
+// .hidden {
+//   display: none;
+// }
+
+// #canvas {
+//   @include full-screen;
+//   z-index: $canvas-z-index;
+//   display: none; // Initially hidden
+// }
+
+// #controls {
+//   @include full-screen;
+//   bottom: auto;
+//   @include center-horizontal;
+//   background: $controls-background;
+//   padding: $controls-padding;
+//   border-radius: $controls-border-radius;
+//   z-index: $controls-z-index;
+//   display: none; // Initially hidden
+// }
+
+/*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*/
+
 .separator {
-	margin: 3rem 0;
-	border-bottom: 1px dashed #fff;
+  margin: 3rem 0;
+  border-bottom: 1px dashed #fff;
 }
 
 .text-uppercase {
-	letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
 }
 
 .subtitle {
-	color: $color_4;
+  color: $light-color_4;
 }
 
 .key {
-	font-family: $font-family_2;
-	font-size: 0.75em;
-	min-width: 3em;
-	min-height: 1.5em;
-	margin: 0.1em;
-	border: 2px solid gray;
-	padding: 0.5em;
+  font-family: $font-family_2;
+  font-size: 0.75em;
+  min-width: 3em;
+  min-height: 1.5em;
+  margin: 0.1em;
+  border: 2px solid gray;
+  padding: 0.5em;
 }
 
 .keyboard-main-area {
-	display: inline-block;
+  display: inline-block;
 }
 
 .page-container {
-	text-align: center;
+  text-align: center;
 
-	div {
-		text-align: center;
-	}
+  div {
+    text-align: center;
+  }
+}
+
+#Space,
+#AltLeft,
+#AltRight,
+#ControlLeft,
+#ControlRight {
+  width: 6em;
 }
 
 #Space {
-	width: 18em;
+  width: 18em;
 }
 
-#AltLeft {
-	width: 6em;
-}
+/*
+* ==========================================
+* AUDIO VISUALIZER STYLES
+* ==========================================
+*/
 
-#AltRight {
-	width: 6em;
-}
-
-#ControlLeft {
-	width: 6em;
-}
-
-#ControlRight {
-	width: 6em;
-}
-
-/* Audio Visualizer */
 #videoPlayer {
-	border: 1px solid black;
-	width: 321px;
-	height: 241px;
+  border: 1px solid black;
+  width: 321px;
+  height: 241px;
 }
-
 
 #visualizer-container {
-	height: 200px;
-	border: 1px solid black;
-	width: 306px;
-	margin: auto;
+  height: 200px;
+  border: 1px solid black;
+  width: 306px;
+  margin: auto;
 }
 
 .visualizer-container-bar {
-	max-height: 200px;
-	display: inline-block;
-	background: black;
-	margin: 0 2px;
-	width: 2px;
+  max-height: 200px;
+  display: inline-block;
+  background: black;
+  margin: 0 2px;
+  width: 2px;
 }
 
 #visualizer-height {
-	height: 200px;
-	display: inline-block;
-	background: transparent;
-	margin: 0;
-	width: 0;
-	position: relative;
+  height: 200px;
+  display: inline-block;
+  background: transparent;
+  margin: 0;
+  width: 0;
+  position: relative;
 }
 
-.logo {
-	max-width: 150px;
-	max-height: 150px;
-	margin: 15px;
-}
-
-
-.btn {
-	margin-left: 10%;
-	margin-right: 10%;
-	width: 55%;
-	text-align: center;
-}
+/*
+* ==========================================
+* POPUP STYLES
+* ==========================================
+*/
 
 .popup {
-	display: none;
-	position: fixed;
-	z-index: 1;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	background-color: $background-color_1;
-	background-color: $background-color_3;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: $light-background-color_3;
 }
 
 .popup-content {
-	background-color: $background-color_2;
-	margin: 15% auto;
-	padding: 20px;
-	border-radius: 10px;
-	width: 80%;
-	height: auto;
+  background-color: $light-background-color_2;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  height: auto;
 }
 
 .popBtn {
-	color: $color_2;
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
+  color: $light-color_2;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 
-	&:hover {
-		color: $color_3;
-		text-decoration: none;
-		cursor: pointer;
-	}
-
-	&:focus {
-		color: $color_3;
-		text-decoration: none;
-		cursor: pointer;
-	}
+  &:hover,
+  &:focus {
+    color: $light-color_3;
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
+
+/*
+* ==========================================
+* NAVIGATION STYLES
+* ==========================================
+*/
 
 .vertical-nav {
-	min-width: 17rem;
-	width: 17rem;
-	height: 100vh;
-	position: fixed;
-	top: 0;
-	left: 0;
-	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
-	transition: all 0.4s;
-	z-index: 1;
+  min-width: 17rem;
+  width: 17rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+  z-index: 1;
 }
 
-.nav-item{
-	font-style: italic;
+.nav-item {
+  font-style: italic;
 
-	&:active {
-		color: $color_3;
-		text-decoration: none;
-		cursor: pointer;
-	}
+  &:active {
+    color: $light-color_3;
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
+
+/*
+* ==========================================
+* PAGE CONTENT STYLES
+* ==========================================
+*/
 
 .page-content {
-	width: calc(100% - 17rem);
-	margin-left: 17rem;
-	transition: all 0.4s;
+  width: calc(100% - 17rem);
+  margin-left: 17rem;
+  transition: all 0.4s;
 }
 
-//active is when the sidebar is hidden
+// Active state when the sidebar is hidden
 #vertical-sidebar.active {
-	margin-left: -17rem;
-
+  margin-left: -17rem;
 }
 
 #content.active {
-	width: 100%;
-	margin: 0;
+  width: 100%;
+  margin: 0;
 }
 
-.dim{
-	filter: opacity(25%);
+.dim {
+  filter: opacity(25%);
 }
 
 .test {
-	margin: 10px;
+  margin: 10px;
 }
 
-@media (max-width: 1024px) {
+/*
+* ==========================================
+* MEDIA QUERIES
+* ==========================================
+*/
 
-	#micCamTests {
-		flex-direction: column;
-	}
+@media (max-width: 1024px) {
+  #micCamTests {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 768px) {
+  // Temporary fix to bug on mobile, dimming is not necessary for that layout.
+  .dim {
+    filter: opacity(1);
+  }
 
-	//temporary fix to bug on mobile, dimming is not necessary for that layout.
-	.dim{
-		filter: opacity(1);
-	}
+  .vertical-nav {
+    min-width: 100vw;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+    z-index: 1;
+  }
 
-	.vertical-nav {
-		min-width: 100vw;
-		width: 100vw;
-		height: 100vh;
-		position: fixed;
-		top: 0;
-		left: 0;
-		box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
-		transition: all 0.4s;
-		z-index: 1;
-	}
+  .page-content {
+    width: -100%;
+    transition: all 0.4s;
+  }
 
+  #vertical-sidebar {
+    margin-left: -100vw;
+  }
 
-	.page-content {
-		width: -100%;
-		transition: all 0.4s;
-	}
+  #vertical-sidebar.active {
+    margin-left: 0;
+  }
 
+  #content {
+    width: 100vw;
+    margin: 0;
+  }
 
-	#vertical-sidebar {
-		margin-left: -100vw;
-	}
+  #content.active {
+    width: 100vw;
+  }
 
-	#vertical-sidebar.active {
-		margin-left: 0;
-	}
+  // Test
+  #keyboard-section,
+  #network {
+    display: none;
+  }
 
-	#content {
-		width: 100vw;
-		margin: 0;
-	}
-
-	#content.active {
-		width: 100vw;
-	}
-
-	// test
-	#keyboard-section, #network {
-		display: none;
-	}
-
-	#visualizer-container,
-	#videoPlayer {
-		max-width: 50%;
-		max-height: 50%;
-	}
-
+  #visualizer-container,
+  #videoPlayer {
+    max-width: 50%;
+    max-height: 50%;
+  }
 }

@@ -1,15 +1,14 @@
-const geoBtn = document.getElementById('geo')
-const networkBtn = document.getElementById('network')
-const UABtn = document.getElementById('UAgent')
+const geoBtn = document.getElementById('geo');
+const networkBtn = document.getElementById('network');
+const UABtn = document.getElementById('UAgent');
 
 geoBtn.onclick = showGeo;
 networkBtn.onclick = showNetwork;
 UABtn.onclick = showUA;
 
-
 // <!-- wait for specified number of milliseconds, used in allTests and testMic, use with async functions-->
 function sleep(s) {
-  return new Promise(resolve => setTimeout(resolve, s * 1000));
+  return new Promise((resolve) => setTimeout(resolve, s * 1000));
 }
 
 // <!-- Returns a json object from the given URL parameter -->
@@ -44,21 +43,23 @@ function startWebcam() {
 
   var webcamStream = function (stream) {
     videoPlayer.srcObject = stream;
-    document.getElementById("webcam-status").innerHTML = "Testing Webcam...";
+    document.getElementById('webcam-status').innerHTML = 'Testing Webcam...';
   };
 
-  navigator.mediaDevices.getUserMedia({ video: true })
+  navigator.mediaDevices
+    .getUserMedia({ video: true })
     .then(webcamStream)
     .catch(function (err) {
-      console.log(`${err} Something went wrong, Please allow webcam permissions!`);
+      console.log(
+        `${err} Something went wrong, Please allow webcam permissions!`
+      );
     });
 }
 
 // // <!-- Microphone test -->
 function startMic() {
-
   const audioChunks = [];
-  const recordLength = document.getElementById("recordLength").value;
+  const recordLength = document.getElementById('recordLength').value;
   var visualizing = false;
 
   if (!visualizing) {
@@ -67,17 +68,16 @@ function startMic() {
   }
 
   var micStream = async function (stream) {
-
-    console.log("Started recording...");
-    document.getElementById("mic-status").innerHTML = "Testing Microphone...";
+    console.log('Started recording...');
+    document.getElementById('mic-status').innerHTML = 'Testing Microphone...';
     const mediaRecorder = new MediaRecorder(stream);
     mediaRecorder.start();
 
-    mediaRecorder.addEventListener("dataavailable", event => {
+    mediaRecorder.addEventListener('dataavailable', (event) => {
       audioChunks.push(event.data);
     });
 
-    mediaRecorder.addEventListener("stop", () => {
+    mediaRecorder.addEventListener('stop', () => {
       const audioBlob = new Blob(audioChunks);
       const audioUrl = URL.createObjectURL(audioBlob);
       const audio = new Audio(audioUrl);
@@ -86,24 +86,24 @@ function startMic() {
 
     await sleep(recordLength);
     mediaRecorder.stop();
-
   };
 
-  navigator.mediaDevices.getUserMedia({ audio: true })
+  navigator.mediaDevices
+    .getUserMedia({ audio: true })
     .then(micStream)
     .catch(function (err) {
-      console.log(`${err} Something went wrong, Please allow microphone permissions!`);
+      console.log(
+        `${err} Something went wrong, Please allow microphone permissions!`
+      );
     });
-
 }
 //  <!-- Geolocation tests -->
 async function getGeo() {
-
   let apiKey = 'ad7e871c6452c8eb60b75432b9f64b23009fe50a92f11d6407198196';
-  let res = await json(`https://api.ipdata.co?api-key=${apiKey}`)
+  let res = await json(`https://api.ipdata.co?api-key=${apiKey}`);
   console.log(res);
   return res;
-};
+}
 
 async function showGeo() {
   let geoData = await getGeo();
@@ -111,32 +111,33 @@ async function showGeo() {
   geoString += `Location: ${geoData.city} ${geoData.region_code} ${geoData.emoji_flag} <br>`;
   geoString += `${geoData.time_zone.abbr} ${geoData.time_zone.current_time}`;
 
-  document.getElementById("geoInfo").innerHTML = geoString;
+  document.getElementById('geoInfo').innerHTML = geoString;
 
-  var geoPopup = document.getElementById("geoView");
-  geoPopup.style.display = "block";
+  var geoPopup = document.getElementById('geoView');
+  geoPopup.style.display = 'block';
 
-
-  var closeBtn = document.getElementById("closeGeoBtn");
+  var closeBtn = document.getElementById('closeGeoBtn');
 
   // When the user clicks on <span> (x), close the modal
   closeBtn.onclick = function () {
-    geoPopup.style.display = "none";
-  }
+    geoPopup.style.display = 'none';
+  };
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
     if (event.target == geoPopup) {
-      geoPopup.style.display = "none";
+      geoPopup.style.display = 'none';
     }
-  }
+  };
 }
 
 // <!-- Network tests -->
 async function getNetwork() {
-
   // step 1. get image url
-  const chartImageUrl = 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Pizigani_1367_Chart_10MB.jpg' + "?n=" + Math.random();
+  const chartImageUrl =
+    'https://upload.wikimedia.org/wikipedia/commons/f/ff/Pizigani_1367_Chart_10MB.jpg' +
+    '?n=' +
+    Math.random();
 
   // step 2. use fetch to download image
   async function fetchImage(url) {
@@ -151,15 +152,15 @@ async function getNetwork() {
     const startTime = performance.now();
     const data = await fetchImage(imageUrl);
     const endTime = performance.now();
-    console.log('download finished.')
+    console.log('download finished.');
     console.log(`download size: ${data.size / 1000} kilobytes`);
-    var sizeBytes = data.size
+    var sizeBytes = data.size;
     console.log(`download size: ${data.size} bytes`);
     var sizeBits = sizeBytes * 8;
     console.log(`size in bits: ${sizeBits} `);
-    const totalTime = ((endTime - startTime) / 1000);
-    var speedBps = Math.round(sizeBits / totalTime)
-    console.log(`speedBps: ${speedBps}`)
+    const totalTime = (endTime - startTime) / 1000;
+    var speedBps = Math.round(sizeBits / totalTime);
+    console.log(`speedBps: ${speedBps}`);
     var speedKbps = (speedBps / 1024).toFixed(2);
     var speedMbps = (speedKbps / 1024).toFixed(2);
     const speed = { Bps: speedBps, Kbps: speedKbps, Mbps: speedMbps };
@@ -175,30 +176,29 @@ async function getNetwork() {
 }
 
 async function showNetwork() {
+  const networkPopup = document.getElementById('networkView');
+  networkPopup.style.display = 'block';
 
-  const networkPopup = document.getElementById("networkView");
-  networkPopup.style.display = "block";
-
-  document.getElementById("networkInfo").innerHTML = "Running test...";
+  document.getElementById('networkInfo').innerHTML = 'Running test...';
   const networkString = await getNetwork();
   console.log(`NetworkString: ${networkString.Mbps}`);
-  document.getElementById("networkInfo").innerHTML = `Your network speed is roughly ${networkString.Mbps} megabits per second.`;
+  document.getElementById(
+    'networkInfo'
+  ).innerHTML = `Your network speed is roughly ${networkString.Mbps} megabits per second.`;
 
-
-  const closeBtn = document.getElementById("closeNetworkBtn");
-
+  const closeBtn = document.getElementById('closeNetworkBtn');
 
   // When the user clicks on <span> (x), close the modal
   closeBtn.onclick = function () {
-    networkPopup.style.display = "none";
-  }
+    networkPopup.style.display = 'none';
+  };
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
     if (event.target == networkPopup) {
-      networkPopup.style.display = "none";
+      networkPopup.style.display = 'none';
     }
-  }
+  };
 }
 
 // <!-- User Agent tests -->
@@ -207,142 +207,211 @@ async function getUA() {
 
   const uaObj = await parser.getResult();
 
-  console.log("object");
+  console.log('object');
 
   console.log(uaObj);
 
   return uaObj;
-
 }
 
 async function showUA() {
-  const osList = document.getElementById('os')
-  const cpuList = document.getElementById('cpu')
-  const browserList = document.getElementById('browser')
+  const osList = document.getElementById('os');
+  const cpuList = document.getElementById('cpu');
+  const browserList = document.getElementById('browser');
 
   const UA = await getUA();
-  let uaString = "";
+  let uaString = '';
 
+  osList.innerHTML = '0S: ' + UA.os.name + ' ' + UA.os.version + ' <br>';
+  cpuList.innerHTML = 'CPU: ' + UA.cpu.architecture + ' <br>';
+  browserList.innerHTML = 'Browser: ' + UA.browser.name;
 
-  osList.innerHTML = "0S: " + UA.os.name + " " + UA.os.version + " <br>";
-  cpuList.innerHTML= "CPU: " + UA.cpu.architecture+ " <br>";
-  browserList.innerHTML = "Browser: " + UA.browser.name;
+  const UAPopup = document.getElementById('UAView');
+  UAPopup.style.display = 'block';
 
-  const UAPopup = document.getElementById("UAView");
-  UAPopup.style.display = "block";
-
-  const closeBtn = document.getElementById("closeUABtn");
+  const closeBtn = document.getElementById('closeUABtn');
 
   // When the user clicks on <span> (x), close the modal
   closeBtn.onclick = function () {
-    UAPopup.style.display = "none";
-  }
+    UAPopup.style.display = 'none';
+  };
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
     if (event.target == UAPopup) {
-      UAPopup.style.display = "none";
+      UAPopup.style.display = 'none';
     }
-  }
+  };
 }
 
 // toggle sidebar
 
-$(function() {
+$(function () {
   // Sidebar toggle behavior through main toggle and peripheral button
-  $('#vertSidebarCollapse, #peripheral').on('click', function() {
+  $('#vertSidebarCollapse, #peripheral').on('click', function () {
     $('#vertical-sidebar, #content').toggleClass('active');
 
-    if ($("#vertical-sidebar").hasClass("active")) {
-      $("#sidebarBtnText").html("More Tests");
+    if ($('#vertical-sidebar').hasClass('active')) {
+      $('#sidebarBtnText').html('More Tests');
       $('#main-content').removeClass('dim');
-    }
-    
-    else{
-      $("#sidebarBtnText").html("Less Tests");
+    } else {
+      $('#sidebarBtnText').html('Less Tests');
       $('#main-content').addClass('dim');
     }
   });
 });
 
-
 ///////////////////////////////////////////////////////////////////// These functions still need cleaned up
 
 function audioVisualizer() {
   const numberOfBars = 35;
-  navigator.mediaDevices.getUserMedia({ audio: true })
-    .then(function (stream) {
-      const ctx = new AudioContext();
-      const audioSource = ctx.createMediaStreamSource(stream);
-      const analyzer = ctx.createAnalyser();
+  navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+    const ctx = new AudioContext();
+    const audioSource = ctx.createMediaStreamSource(stream);
+    const analyzer = ctx.createAnalyser();
 
-      audioSource.connect(analyzer);
+    audioSource.connect(analyzer);
 
-      const frequencyData = new Uint8Array(analyzer.frequencyBinCount);
+    const frequencyData = new Uint8Array(analyzer.frequencyBinCount);
+    analyzer.getByteFrequencyData(frequencyData);
+
+    const visualizerContainer = document.getElementById('visualizer-container');
+
+    for (let i = 0; i < numberOfBars; i++) {
+      const bar = document.createElement('span');
+      bar.setAttribute('id', 'bar' + i);
+      bar.setAttribute('class', 'visualizer-container-bar');
+      visualizerContainer.appendChild(bar);
+    }
+
+    function renderFrame() {
       analyzer.getByteFrequencyData(frequencyData);
 
-      const visualizerContainer = document.getElementById("visualizer-container");
-
       for (let i = 0; i < numberOfBars; i++) {
-        const bar = document.createElement("span");
-        bar.setAttribute("id", "bar" + i);
-        bar.setAttribute("class", "visualizer-container-bar");
-        visualizerContainer.appendChild(bar);
-      }
+        const index = (i + 10) * 2;
+        const fd = frequencyData[index];
 
-      function renderFrame() {
-        analyzer.getByteFrequencyData(frequencyData);
-
-        for (let i = 0; i < numberOfBars; i++) {
-          const index = (i + 10) * 2;
-          const fd = frequencyData[index];
-
-          const bar = document.querySelector("#bar" + i);
-          if (!bar) {
-            continue;
-          }
-
-          const barHeight = Math.max(4, fd || 0);
-          bar.style.height = barHeight + "px";
+        const bar = document.querySelector('#bar' + i);
+        if (!bar) {
+          continue;
         }
 
-        window.requestAnimationFrame(renderFrame);
+        const barHeight = Math.max(4, fd || 0);
+        bar.style.height = barHeight + 'px';
       }
-      renderFrame();
-    })
+
+      window.requestAnimationFrame(renderFrame);
+    }
+    renderFrame();
+  });
 }
 
 // <!-- Keyboard test -->
 
 function highlightOnlyOnFocus() {
-  var keyPressed = "";
-  var keyReleased = "";
-  document.addEventListener("keydown", (event) => {
-    if (event.code != "") {
+  var keyPressed = '';
+  var keyReleased = '';
+  document.addEventListener('keydown', (event) => {
+    if (event.code != '') {
       keyPressed = event.code;
     } else {
       keyPressed = event.key;
     }
 
-    var key_array = ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Tab", "AltLeft", "AltRight", "PrintScreen", "ScrollLock", "Pause", "Insert", "Home", "PageUp", "Delete", "End", "PageDown", "ContextMenu", "MetaLeft", "MetaRight"];
+    var key_array = [
+      'F1',
+      'F2',
+      'F3',
+      'F4',
+      'F5',
+      'F6',
+      'F7',
+      'F8',
+      'F9',
+      'F10',
+      'F11',
+      'F12',
+      'Tab',
+      'AltLeft',
+      'AltRight',
+      'PrintScreen',
+      'ScrollLock',
+      'Pause',
+      'Insert',
+      'Home',
+      'PageUp',
+      'Delete',
+      'End',
+      'PageDown',
+      'ContextMenu',
+      'MetaLeft',
+      'MetaRight',
+    ];
 
     if (key_array.includes(keyPressed)) {
       event.preventDefault();
-    };
+    }
 
-    document.getElementById(keyPressed).style.backgroundColor = "#cccccc";
+    document.getElementById(keyPressed).style.backgroundColor = '#cccccc';
   });
 
-  document.addEventListener("keyup", (event) => {
-    if (event.code != "") {
+  document.addEventListener('keyup', (event) => {
+    if (event.code != '') {
       keyReleased = event.code;
     } else {
       keyReleased = event.key;
     }
-    document.getElementById(keyReleased).style.backgroundColor = "#228B22";
+    document.getElementById(keyReleased).style.backgroundColor = '#228B22';
   });
 }
 
 function focusOnKeyboardTest() {
-  document.getElementById("keyboard-test").focus({focusVisible: true});
+  document.getElementById('keyboard-test').focus({ focusVisible: true });
 }
+
+//Dead Pixel Test
+
+const colors = ['red', 'green', 'blue', 'white', 'black'];
+let currentColorIndex = 0;
+
+const canvas = document.getElementById('canvas');
+const context = canvas.getContext('2d');
+
+function fillScreen(color) {
+  context.fillStyle = color;
+  context.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function startPixelTest() {
+  // Set canvas and controls to full-screen and show them
+  canvas.style.display = 'block';
+  document.getElementById('controls').style.display = 'block';
+
+  // Set canvas dimensions to the window size
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  // Start with the first color
+  fillScreen(colors[currentColorIndex]);
+
+  // Hide the rest of the content
+  document.getElementById('main-content').style.display = 'none';
+}
+
+function nextColor() {
+  currentColorIndex = (currentColorIndex + 1) % colors.length;
+  fillScreen(colors[currentColorIndex]);
+}
+
+function exitTest() {
+  // Clear the canvas and hide it along with the controls
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  canvas.style.display = 'none';
+  document.getElementById('controls').style.display = 'none';
+
+  // Show the main content again
+  document.getElementById('main-content').style.display = 'block';
+}
+
+document.getElementById('next').addEventListener('click', nextColor);
+document.getElementById('exit').addEventListener('click', exitTest);

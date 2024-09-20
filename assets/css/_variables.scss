@@ -1,0 +1,33 @@
+/*
+* ==========================================
+* SCSS VARIABLES
+* ==========================================
+*/
+
+/* Light Mode */
+$light-color-1: black;
+$light-color-2: rgb(23, 26, 29);
+$light-color-3: rgb(0, 89, 253);
+$light-color-4: rgb(70, 69, 69);
+$light-background-color-1: lightgray;
+$light-background-color-2: rgb(177, 190, 140);
+$light-background-color-3: rgba(0, 0, 0, 0.4);
+
+/* Dark Mode */
+$dark-color-1: white;
+$dark-color-2: rgb(200, 200, 200);
+$dark-color-3: rgb(50, 150, 255);
+$dark-color-4: rgb(150, 150, 150);
+$dark-background-color-1: rgb(20, 20, 20);
+$dark-background-color-2: rgb(30, 30, 30);
+$dark-background-color-3: rgba(255, 255, 255, 0.4);
+
+/* Font families */
+$font-family-1: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-family-2: 'Courier New', Courier, monospace;
+
+/* Z-index and others */
+$canvas-z-index: 1000;
+$controls-z-index: 1001;
+$controls-padding: 10px;
+$controls-border-radius: 5px;

@@ -77,66 +77,76 @@
 
 
   <!-- Page content holder -->
-      <!-- popups -->
+  <!-- popups -->
 
 
-      <div class="row">
-        <div class="col-lg-12">
-          <!-- Geolocation Popup-->
-          <div id="geoView" class="popup">
-            <!-- window content -->
-            <div class="popup-content">
-              <i id="closeGeoBtn" class="popBtn fa-regular fa-circle-xmark"></i>
-              <h2 data-i18n-key="geo-title">Geolocation Info:</h2>
-              <p id="geoInfo"> </p>
-            </div>
-  
-          </div>
-  
-          <!-- Network Popup-->
-          <div id="networkView" class="popup">
-            <!-- window content -->
-            <div class="popup-content">
-              <i id="closeNetworkBtn" class=" popBtn fa-regular fa-circle-xmark"></i>
-              <h2 data-i18n-key="network-title">Network Info:</h2>
-              <h4 id="networkInfo"> </h4>
-              <small data-i18n-key="network-disclaimer">* This test is to be used as an estimate of network speed only.
-                For a more accurate test the compuTester team likes: </small>
-              <a href="https://librespeed.org/">librespeed.</a>
-            </div>
-  
-          </div>
-  
-          <!-- User Agent Popup-->
-          <div id="UAView" class="popup">
-            <!-- window content -->
-            <div class="popup-content">
-              <i id="closeUABtn" class="popBtn fa-regular fa-circle-xmark"></i>
-              <h2 data-i18n-key="ua-title">User Agent Info:</h2>
-              <ul>
-                <li id="os"></li>
-                <li id="cpu"></li>
-                <li id="browser"></li>
-              </ul>
-            </div>
-          </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <!-- Geolocation Popup-->
+      <div id="geoView" class="popup">
+        <!-- window content -->
+        <div class="popup-content">
+          <i id="closeGeoBtn" class="popBtn fa-regular fa-circle-xmark"></i>
+          <h2 data-i18n-key="geo-title">Geolocation Info:</h2>
+          <p id="geoInfo"> </p>
+        </div>
+
+      </div>
+
+      <!-- Network Popup-->
+      <div id="networkView" class="popup">
+        <!-- window content -->
+        <div class="popup-content">
+          <i id="closeNetworkBtn" class=" popBtn fa-regular fa-circle-xmark"></i>
+          <h2 data-i18n-key="network-title">Network Info:</h2>
+          <h4 id="networkInfo"> </h4>
+          <small data-i18n-key="network-disclaimer">* This test is to be used as an estimate of network speed only.
+            For a more accurate test the compuTester team likes: </small>
+          <a href="https://librespeed.org/">librespeed.</a>
+        </div>
+
+      </div>
+
+      <!-- User Agent Popup-->
+      <div id="UAView" class="popup">
+        <!-- window content -->
+        <div class="popup-content">
+          <i id="closeUABtn" class="popBtn fa-regular fa-circle-xmark"></i>
+          <h2 data-i18n-key="ua-title">User Agent Info:</h2>
+          <ul>
+            <li id="os"></li>
+            <li id="cpu"></li>
+            <li id="browser"></li>
+          </ul>
         </div>
       </div>
-  
-      <!-- end popups -->
+    </div>
+  </div>
+
+  <!-- end popups -->
+
+
+
 
   <!-- language switcher -->
-<div id="main-content">
-  <div class="d-flex justify-content-end m-3">
-    <i class="fa-solid fa-language mr-2"></i>
+  <div id="main-content">
+    <div class="d-flex justify-content-end align-items-center m-3">
+      <!-- Dark Mode Toggle -->
+      <button id="darkModeToggle" class="btn btn-secondary mr-2">
+        <i class="fa-solid fa-moon"></i> Dark Mode
+      </button>
 
-    <select tabindex="1" data-i18n-switcher class="locale-switcher">
-      <option value="en">English</option>
-      <option value="es">Espanol</option>
-      <option value="ar">Arabic</option>
-      <option value="de">Deusch</option>
-    </select>
+      <!-- Language Icon and Switcher -->
+      <i class="fa-solid fa-language mr-2"></i>
+      <select tabindex="1" data-i18n-switcher class="locale-switcher">
+        <option value="en">English</option>
+        <option value="es">Espanol</option>
+        <!-- <option value="ar">Arabic</option>
+        <option value="de">Deutsch</option> -->
+      </select>
+    </div>
   </div>
+
 
   <div class="page-content p-5 active" id="content">
 
@@ -161,7 +171,6 @@
 
     <!-- main tests -->
     <div id="mainTests">
-
       <!-- mic and webcam tests -->
       <div id="micCamTests" class="d-flex justify-content-around">
         <div class="col-lg-7">
@@ -171,7 +180,8 @@
               onclick="startMic()" tabindex="4">Start Microphone</button>
 
             <section>
-              <label data-i18n-key="record-length" for="recordLength">Recording Length (in seconds):</label>
+              <label data-i18n-key="record-length" for="recordLength">Recording Length (in
+                seconds):</label>
               <input id="recordLength" type="text" value="5" min="3" max="300" tabindex="3" size="1">
             </section>
 
@@ -221,111 +231,128 @@
 
       <div class="separator"></div>
 
-      <div class="row" id="keyboard-section">
-        <div class="col-lg-12">
-          <div>
-            <div id="keyboard-tests"><!-- START: Keyboard Test -->
-              <h2 data-i18n-key="keyboard-title">Keyboard Test</h2>
-              <p data-i18n-key="check-reminder">Don't forget to check your other top row keys and the headphone jack.
-              </p>
-              <div id="keyboard"><!-- START: Keyboard -->
-                <div class="keyboard-main-area"><!-- START: Keyboard Main Area -->
-                  <div class="d-flex justify-content-left"><!-- START: First Row -->
-                    <span class="key" id="Escape">Esc</span> &nbsp;
 
-                  </div><!-- END: First Row -->
-
-                  <div class="d-flex justify-content-center"><!-- START: Second Row -->
-                    <span class="key" id="Backquote">`</span>
-                    <span class="key" id="Digit1">1</span>
-                    <span class="key" id="Digit2">2</span>
-                    <span class="key" id="Digit3">3</span>
-                    <span class="key" id="Digit4">4</span>
-                    <span class="key" id="Digit5">5</span>
-                    <span class="key" id="Digit6">6</span>
-                    <span class="key" id="Digit7">7</span>
-                    <span class="key" id="Digit8">8</span>
-                    <span class="key" id="Digit9">9</span>
-                    <span class="key" id="Digit0">0</span>
-                    <span class="key" id="Minus">-</span>
-                    <span class="key" id="Equal">=</span>
-                    <span class="key" id="Backspace">Backspace</span>
-                  </div><!-- END: Second Row -->
-
-                  <div class="d-flex justify-content-center"><!-- START: Third Row -->
-                    <span class="key" id="Tab">Tab</span>
-                    <span class="key" id="KeyQ">Q</span>
-                    <span class="key" id="KeyW">W</span>
-                    <span class="key" id="KeyE">E</span>
-                    <span class="key" id="KeyR">R</span>
-                    <span class="key" id="KeyT">T</span>
-                    <span class="key" id="KeyY">Y</span>
-                    <span class="key" id="KeyU">U</span>
-                    <span class="key" id="KeyI">I</span>
-                    <span class="key" id="KeyO">O</span>
-                    <span class="key" id="KeyP">P</span>
-                    <span class="key" id="BracketLeft">[</span>
-                    <span class="key" id="BracketRight">]</span>
-                    <span class="key" id="Backslash">\</span>
-                  </div><!-- END: Third Row -->
-
-                  <div class="d-flex justify-content-center"><!-- START: Fourth Row -->
-                    <!-- <span class="key" id="CapsLock"></span> -->
-                    <span class="key" id="MetaLeft">&#128269;</span>
-                    <span class="key" id="KeyA">A</span>
-                    <span class="key" id="KeyS">S</span>
-                    <span class="key" id="KeyD">D</span>
-                    <span class="key" id="KeyF">F</span>
-                    <span class="key" id="KeyG">G</span>
-                    <span class="key" id="KeyH">H</span>
-                    <span class="key" id="KeyJ">J</span>
-                    <span class="key" id="KeyK">K</span>
-                    <span class="key" id="KeyL">L</span>
-                    <span class="key" id="Semicolon">;</span>
-                    <span class="key" id="Quote">'</span>
-                    <span class="key" id="Enter">Enter</span>
-                  </div><!-- END: Fourth Row -->
-
-
-                  <div class="d-flex justify-content-center"><!-- START: Fifth Row -->
-                    <span class="key" id="ShiftLeft">Shift</span>
-                    <span class="key" id="KeyZ">Z</span>
-                    <span class="key" id="KeyX">X</span>
-                    <span class="key" id="KeyC">C</span>
-                    <span class="key" id="KeyV">V</span>
-                    <span class="key" id="KeyB">B</span>
-                    <span class="key" id="KeyN">N</span>
-                    <span class="key" id="KeyM">M</span>
-                    <span class="key" id="Comma">,</span>
-                    <span class="key" id="Period">.</span>
-                    <span class="key" id="Slash">/</span>
-                    <span class="key" id="ShiftRight">Shift</span>
-                    <span class="key" id="ArrowUp">&#8593</span> <!-- Up Arrow -->
-                  </div><!-- END: Fifth Row -->
-
-                  <div class="d-flex justify-content-center"><!-- START: Sixth Row -->
-                    <span class="key" id="ControlLeft">Ctrl</span>
-                    <span class="key" id="AltLeft">Alt</span>
-                    <span class="key" id="Space">Space Bar</span>
-                    <span class="key" id="AltRight">Alt</span>
-                    <span class="key" id="ControlRight">Ctrl</span>
-                    <span class="key" id="ArrowLeft">&#8592</span> <!-- Left Arrow -->
-                    <span class="key" id="ArrowDown">&#8595</span> <!-- Down Arrow -->
-                    <span class="key" id="ArrowRight">&#8594</span> <!-- Right Arrow -->
-                  </div><!-- END: Sixth Row -->
-                </div><!-- END: Keyboard Main Area-->
-
-              </div> <!-- END: Keyboard -->
-
-              <textarea id="keyboard-test" tabindex="8" onfocus="highlightOnlyOnFocus();"
-                oncontextmenu="event.preventDefault();" rows="2" cols="60"></textarea>
-            </div><!-- END: Keyboard Test -->
-          </div>
+      <!-- Pixel Tests
+      <div class="test">
+        <h3 data-i18n-key="pixel-test">Pixel Test</h3>
+        <button data-i18n-key="pixel-button" class="btn btn-light btn-secondary rounded-pill shadow-sm" id="pixelBtn"
+          onclick="startPixelTest()" tabindex="7">Run Test</button>
+        <canvas id="canvas" class="hidden"></canvas>
+        <div id="controls" class="hidden">
+          <button id="next">Next Color</button>
+          <button id="exit">Exit</button>
         </div>
       </div>
+
+      <div class="separator"></div>
+      <div class="row" id="keyboard-section">
+        <div class="col-lg-12">
+          <div> -->
+
+
+      <div id="keyboard-tests"><!-- START: Keyboard Test -->
+        <h2 data-i18n-key="keyboard-title">Keyboard Test</h2>
+        <p data-i18n-key="check-reminder">Don't forget to check your other top row keys and the
+          headphone jack.
+        </p>
+        <div id="keyboard"><!-- START: Keyboard -->
+          <div class="keyboard-main-area"><!-- START: Keyboard Main Area -->
+            <div class="d-flex justify-content-left"><!-- START: First Row -->
+              <span class="key" id="Escape">Esc</span> &nbsp;
+
+            </div><!-- END: First Row -->
+
+            <div class="d-flex justify-content-center"><!-- START: Second Row -->
+              <span class="key" id="Backquote">`</span>
+              <span class="key" id="Digit1">1</span>
+              <span class="key" id="Digit2">2</span>
+              <span class="key" id="Digit3">3</span>
+              <span class="key" id="Digit4">4</span>
+              <span class="key" id="Digit5">5</span>
+              <span class="key" id="Digit6">6</span>
+              <span class="key" id="Digit7">7</span>
+              <span class="key" id="Digit8">8</span>
+              <span class="key" id="Digit9">9</span>
+              <span class="key" id="Digit0">0</span>
+              <span class="key" id="Minus">-</span>
+              <span class="key" id="Equal">=</span>
+              <span class="key" id="Backspace">Backspace</span>
+            </div><!-- END: Second Row -->
+
+            <div class="d-flex justify-content-center"><!-- START: Third Row -->
+              <span class="key" id="Tab">Tab</span>
+              <span class="key" id="KeyQ">Q</span>
+              <span class="key" id="KeyW">W</span>
+              <span class="key" id="KeyE">E</span>
+              <span class="key" id="KeyR">R</span>
+              <span class="key" id="KeyT">T</span>
+              <span class="key" id="KeyY">Y</span>
+              <span class="key" id="KeyU">U</span>
+              <span class="key" id="KeyI">I</span>
+              <span class="key" id="KeyO">O</span>
+              <span class="key" id="KeyP">P</span>
+              <span class="key" id="BracketLeft">[</span>
+              <span class="key" id="BracketRight">]</span>
+              <span class="key" id="Backslash">\</span>
+            </div><!-- END: Third Row -->
+
+            <div class="d-flex justify-content-center"><!-- START: Fourth Row -->
+              <!-- <span class="key" id="CapsLock"></span> -->
+              <span class="key" id="MetaLeft">&#128269;</span>
+              <span class="key" id="KeyA">A</span>
+              <span class="key" id="KeyS">S</span>
+              <span class="key" id="KeyD">D</span>
+              <span class="key" id="KeyF">F</span>
+              <span class="key" id="KeyG">G</span>
+              <span class="key" id="KeyH">H</span>
+              <span class="key" id="KeyJ">J</span>
+              <span class="key" id="KeyK">K</span>
+              <span class="key" id="KeyL">L</span>
+              <span class="key" id="Semicolon">;</span>
+              <span class="key" id="Quote">'</span>
+              <span class="key" id="Enter">Enter</span>
+            </div><!-- END: Fourth Row -->
+
+
+            <div class="d-flex justify-content-center"><!-- START: Fifth Row -->
+              <span class="key" id="ShiftLeft">Shift</span>
+              <span class="key" id="KeyZ">Z</span>
+              <span class="key" id="KeyX">X</span>
+              <span class="key" id="KeyC">C</span>
+              <span class="key" id="KeyV">V</span>
+              <span class="key" id="KeyB">B</span>
+              <span class="key" id="KeyN">N</span>
+              <span class="key" id="KeyM">M</span>
+              <span class="key" id="Comma">,</span>
+              <span class="key" id="Period">.</span>
+              <span class="key" id="Slash">/</span>
+              <span class="key" id="ShiftRight">Shift</span>
+              <span class="key" id="ArrowUp">&#8593</span> <!-- Up Arrow -->
+            </div><!-- END: Fifth Row -->
+
+            <div class="d-flex justify-content-center"><!-- START: Sixth Row -->
+              <span class="key" id="ControlLeft">Ctrl</span>
+              <span class="key" id="AltLeft">Alt</span>
+              <span class="key" id="Space">Space Bar</span>
+              <span class="key" id="AltRight">Alt</span>
+              <span class="key" id="ControlRight">Ctrl</span>
+              <span class="key" id="ArrowLeft">&#8592</span> <!-- Left Arrow -->
+              <span class="key" id="ArrowDown">&#8595</span> <!-- Down Arrow -->
+              <span class="key" id="ArrowRight">&#8594</span> <!-- Right Arrow -->
+            </div><!-- END: Sixth Row -->
+          </div><!-- END: Keyboard Main Area-->
+
+        </div> <!-- END: Keyboard -->
+
+        <textarea id="keyboard-test" tabindex="8" onfocus="highlightOnlyOnFocus();"
+          oncontextmenu="event.preventDefault();" rows="2" cols="60"></textarea>
+      </div><!-- END: Keyboard Test -->
     </div>
   </div>
-</div>
+  </div>
+  </div>
+  </div>
+  </div>
   <!-- SCRIPTS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -346,6 +373,7 @@
   <script src="assets/js/localization.js"></script>
   <script src="assets/js/lib/UAParser.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/darkMode.js"></script>
 </body>
 
 </html>
