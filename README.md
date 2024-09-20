@@ -33,6 +33,7 @@ The CompuTester landing page offers four core tests for diagnosing laptop issues
 - **Microphone Test**: Check if your microphone is functioning correctly.
 - **Speaker Test**: Ensure your speakers are working as expected.
 - **Keyboard Test**: Validate the functionality of your keyboard.
+- **Dark Mode**: Users can toggle between light and dark mode to adjust the appearance of the interface to their preference. Dark mode can be activated by clicking the "Dark Mode" button, providing a more comfortable viewing experience in low-light conditions.
 
 These tests are particularly useful for fast diagnostics of laptops and were initially designed for repairing and refurbishing Chromebooks.
 

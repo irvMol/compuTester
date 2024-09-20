@@ -382,36 +382,36 @@ function fillScreen(color) {
   context.fillRect(0, 0, canvas.width, canvas.height);
 }
 
-function startPixelTest() {
-  // Set canvas and controls to full-screen and show them
-  canvas.style.display = 'block';
-  document.getElementById('controls').style.display = 'block';
+// function startPixelTest() {
+//   // Set canvas and controls to full-screen and show them
+//   canvas.style.display = 'block';
+//   document.getElementById('controls').style.display = 'block';
 
-  // Set canvas dimensions to the window size
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+//   // Set canvas dimensions to the window size
+//   canvas.width = window.innerWidth;
+//   canvas.height = window.innerHeight;
 
-  // Start with the first color
-  fillScreen(colors[currentColorIndex]);
+//   // Start with the first color
+//   fillScreen(colors[currentColorIndex]);
 
-  // Hide the rest of the content
-  document.getElementById('main-content').style.display = 'none';
-}
+//   // Hide the rest of the content
+//   document.getElementById('main-content').style.display = 'none';
+// }
 
-function nextColor() {
-  currentColorIndex = (currentColorIndex + 1) % colors.length;
-  fillScreen(colors[currentColorIndex]);
-}
+// function nextColor() {
+//   currentColorIndex = (currentColorIndex + 1) % colors.length;
+//   fillScreen(colors[currentColorIndex]);
+// }
 
-function exitTest() {
-  // Clear the canvas and hide it along with the controls
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  canvas.style.display = 'none';
-  document.getElementById('controls').style.display = 'none';
+// function exitTest() {
+//   // Clear the canvas and hide it along with the controls
+//   context.clearRect(0, 0, canvas.width, canvas.height);
+//   canvas.style.display = 'none';
+//   document.getElementById('controls').style.display = 'none';
 
-  // Show the main content again
-  document.getElementById('main-content').style.display = 'block';
-}
+//   // Show the main content again
+//   document.getElementById('main-content').style.display = 'block';
+// }
 
-document.getElementById('next').addEventListener('click', nextColor);
-document.getElementById('exit').addEventListener('click', exitTest);
+// document.getElementById('next').addEventListener('click', nextColor);
+// document.getElementById('exit').addEventListener('click', exitTest);
