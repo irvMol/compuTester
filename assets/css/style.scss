@@ -55,26 +55,42 @@ li {
 * ==========================================
 */
 
-// .hidden {
-//   display: none;
-// }
+#canvas {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
 
-// #canvas {
-//   @include full-screen;
-//   z-index: $canvas-z-index;
-//   display: none; // Initially hidden
-// }
+#controls {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
 
-// #controls {
-//   @include full-screen;
-//   bottom: auto;
-//   @include center-horizontal;
-//   background: $controls-background;
-//   padding: $controls-padding;
-//   border-radius: $controls-border-radius;
-//   z-index: $controls-z-index;
-//   display: none; // Initially hidden
-// }
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f8f9fa;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #e2e6ea;
+  }
+}
+
+.hidden {
+  display: none;
+}
 
 /*
 * ==========================================

@@ -369,49 +369,77 @@ function focusOnKeyboardTest() {
   document.getElementById('keyboard-test').focus({ focusVisible: true });
 }
 
-// //Dead Pixel Test
+//Dead Pixel Test
 
-// const colors = ['red', 'green', 'blue', 'white', 'black'];
-// let currentColorIndex = 0;
+const colors = ['red', 'green', 'blue', 'white', 'black'];
+let currentColorIndex = 0;
 
-// const canvas = document.getElementById('canvas');
-// const context = canvas.getContext('2d');
+const canvas = document.getElementById('canvas');
+const context = canvas.getContext('2d');
 
-// function fillScreen(color) {
-//   context.fillStyle = color;
-//   context.fillRect(0, 0, canvas.width, canvas.height);
-// }
+function fillScreen(color) {
+  context.fillStyle = color;
+  context.fillRect(0, 0, canvas.width, canvas.height);
+}
 
-// function startPixelTest() {
-//   // Set canvas and controls to full-screen and show them
-//   canvas.style.display = 'block';
-//   document.getElementById('controls').style.display = 'block';
+function startPixelTest() {
+  // Request full-screen mode
+  if (canvas.requestFullscreen) {
+    canvas.requestFullscreen();
+  } else if (canvas.mozRequestFullScreen) {
+    // Firefox
+    canvas.mozRequestFullScreen();
+  } else if (canvas.webkitRequestFullscreen) {
+    // Chrome, Safari and Opera
+    canvas.webkitRequestFullscreen();
+  } else if (canvas.msRequestFullscreen) {
+    // IE/Edge
+    canvas.msRequestFullscreen();
+  }
 
-//   // Set canvas dimensions to the window size
-//   canvas.width = window.innerWidth;
-//   canvas.height = window.innerHeight;
+  // Set canvas and controls to full-screen and show them
+  canvas.style.display = 'block';
+  document.getElementById('controls').style.display = 'flex';
 
-//   // Start with the first color
-//   fillScreen(colors[currentColorIndex]);
+  // Set canvas dimensions to the screen size
+  canvas.width = screen.width;
+  canvas.height = screen.height;
 
-//   // Hide the rest of the content
-//   document.getElementById('main-content').style.display = 'none';
-// }
+  // Start with the first color
+  fillScreen(colors[currentColorIndex]);
 
-// function nextColor() {
-//   currentColorIndex = (currentColorIndex + 1) % colors.length;
-//   fillScreen(colors[currentColorIndex]);
-// }
+  // Hide the rest of the content
+  document.getElementById('main-content').style.display = 'none';
+}
 
-// function exitTest() {
-//   // Clear the canvas and hide it along with the controls
-//   context.clearRect(0, 0, canvas.width, canvas.height);
-//   canvas.style.display = 'none';
-//   document.getElementById('controls').style.display = 'none';
+function nextColor() {
+  currentColorIndex = (currentColorIndex + 1) % colors.length;
+  fillScreen(colors[currentColorIndex]);
+}
 
-//   // Show the main content again
-//   document.getElementById('main-content').style.display = 'block';
-// }
+function exitTest() {
+  // Clear the canvas and hide it along with the controls
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  canvas.style.display = 'none';
+  document.getElementById('controls').style.display = 'none';
 
-// document.getElementById('next').addEventListener('click', nextColor);
-// document.getElementById('exit').addEventListener('click', exitTest);
+  // Show the main content again
+  document.getElementById('main-content').style.display = 'block';
+
+  // Exit full-screen mode if active
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    // Firefox
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    // Chrome, Safari and Opera
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    // IE/Edge
+    document.msExitFullscreen();
+  }
+}
+
+document.getElementById('next').addEventListener('click', nextColor);
+document.getElementById('exit').addEventListener('click', exitTest);
