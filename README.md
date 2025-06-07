@@ -21,7 +21,7 @@ CompuTester is a versatile web application designed to help users quickly test a
 
 ## Accessing the WebApp
 
-You can access CompuTester by visiting the official website: [https://computester.com](https://computester.com).
+You can access CompuTester by visiting the official website: [https://computester.net](https://computester.net).
 
 ## Features
 
