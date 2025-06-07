@@ -1,51 +1,26 @@
 {
-
-    "subtitle": "Simplifying the word \"Diagnostics\" ",
-
-    "tests-heading": "Tests",
-
-    "sidebar-button-less": "Less Tests",
-
-    "sidebar-button-more": "More Tests",
-
-    "main-test-link": "Peripherals",
-
-    "geo-link": "Geolocation",
-
-    "network-link": "Network Tests",
-
-    "ua-link": "User Agent",
-
-    "portfolio-link": "Developer's Portfolio",
-
-    "contact-heading": "Contact Us",
-
-    "geo-title": "Geolocation Info",
-
-    "network-title": "Network Info",
-
-    "network-disclaimer": "* This test is to be used as an estimate of network speed only. For a more accurate test the compuTester team likes: ",
-
-    "ua-title": "User Agent Info: ",
-
-    "mic-title": "Microphone Test",
-
-    "mic-button": "Start Microphone",
-
-    "record-length": "Recording Length (in seconds): ",
-
-    "webcam-title": "Webcam Test",
-
-    "webcam-button": "Start webcam",
-
-    "left-channel": "Left Channel",
-
-    "audio-button": "Play",
-
-    "right-channel": "Right Channel",
-
-    "keyboard-title": "Keyboard Test",
-
-    "check-reminder": "Don't forget to check your other top row keys and the headphone jack."
-
-  }
+  "subtitle": "Einfache Geräteprüfung",
+  "tests-heading": "Prüfungen",
+  "sidebar-button-less": "Weniger Prüfungen",
+  "sidebar-button-more": "Mehr Prüfungen",
+  "main-test-link": "Peripheriegeräte",
+  "geo-link": "Standort",
+  "network-link": "Netzwerk-Prüfungen",
+  "ua-link": "Nutzer-Agent",
+  "portfolio-link": "Portfolio des Entwicklers",
+  "contact-heading": "Kontakt",
+  "geo-title": "Standort-Informationen",
+  "network-title": "Netzwerk-Informationen",
+  "network-disclaimer": "* Dieser Test dient nur zur Schätzung der Netzwerkgeschwindigkeit. Für einen genaueren Test empfiehlt das compuTester Team: ",
+  "ua-title": "Nutzer-Agent Informationen: ",
+  "mic-title": "Mikrofon-Prüfung",
+  "mic-button": "Mikrofon starten",
+  "record-length": "Aufnahmedauer (in Sekunden): ",
+  "webcam-title": "Webcam-Prüfung",
+  "webcam-button": "Webcam starten",
+  "left-channel": "Linker Kanal",
+  "audio-button": "Wiedergabe",
+  "right-channel": "Rechter Kanal",
+  "keyboard-title": "Tastatur-Prüfung",
+  "check-reminder": "Vergessen Sie nicht, Ihre oberen Tasten und den Kopfhöreranschluss zu überprüfen."
+}
