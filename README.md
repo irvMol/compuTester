@@ -1,6 +1,6 @@
 # CompuTester WebApp
 
-![WebApp](https://computester.com/assets/images/app_demo_screenshot.png)
+![WebApp](https://computester.net/assets/images/app_demo_screenshot.png)
 
 ## Table of Contents
 
@@ -37,21 +37,21 @@ The CompuTester landing page offers four core tests for diagnosing laptop issues
 
 These tests are particularly useful for fast diagnostics of laptops and were initially designed for repairing and refurbishing Chromebooks.
 
-![Landing Page](https://computester.com/assets/images/app_main_screenshot.png)
+![Landing Page](https://computester.net/assets/images/app_main_screenshot.png)
 
 ### Module Tests
 
 CompuTester provides additional module tests that expand its diagnostic capabilities. These tests are invaluable when diagnosing specific device issues.
 
-- **Module Test 1**: ![Screenshot](https://computester.com/assets/images/app_test1_screenshot.png)
-- **Module Test 2**: ![Screenshot](https://computester.com/assets/images/app_test2_screenshot.png)
-- **Module Test 3**: ![Screenshot](https://computester.com/assets/images/app_test3_screenshot.png)
+- **Module Test 1**: ![Screenshot](https://computester.net/assets/images/app_test1_screenshot.png)
+- **Module Test 2**: ![Screenshot](https://computester.net/assets/images/app_test2_screenshot.png)
+- **Module Test 3**: ![Screenshot](https://computester.net/assets/images/app_test3_screenshot.png)
 
 ## Mobile Support
 
 CompuTester is compatible with devices of all sizes and operating systems. The development team is continuously working to improve mobile support. Due to the limitations of not having a physical keyboard, the keyboard test is not available on touchscreen devices at this time.
 
-![Mobile Support](https://computester.com/assets/images/mobile_screenshot.png)
+![Mobile Support](https://computester.net/assets/images/mobile_screenshot.png)
 
 ## Development
 
